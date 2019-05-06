@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-      <meta charset="utf-8">
-    <link rel="stylesheet" href="css/normalize.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC" rel="stylesheet">
-		<link rel="stylesheet" href="css/styles.css">
-    <title>BIGFASHION</title>
-  </head>
+  <section class="seccionLogin">
      <div class="login">
        <img src="img/img_2929.jpg" alt="logo">
         <h2>Mi cuenta en <strong>BIGFASHION</strong></h2>
@@ -22,7 +15,7 @@
               <label for="recordame">recordame</label>
             </section>
               <button type="submit" name="enviar">ingresar</button>
-          </div>
             </form>
-  </body>
+      </div>
+  </section>
 </html>

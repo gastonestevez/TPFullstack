@@ -3,12 +3,7 @@
  padding: 0;
  box-sizing: border-box;
  list-style-type: none;
-}
-
-header .logo-nav{
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+ font-family: 'Alegreya Sans SC', sans-serif;
 }
 
 header .carrito-nav{
@@ -16,15 +11,17 @@ header .carrito-nav{
   margin: 0px 10px 0px 10px;
 }
 
-body{
-  font-family: 'Alegreya Sans SC', sans-serif;
-  background-image: url(../img/login_paint.jpg);
+main {
+  background-image: url(../img/background_home.png);
   background-size: cover;
-  height: 450px;
+}
+body{
+  height: 450px; /*revisar esto*/
 }
 
-.tarjeta-intro{
-
+section .seccionLogin{
+  background-image: url(../img/login_paint.jpg);
+  background-size: cover;
 }
 div.login{
   width: 80%;
