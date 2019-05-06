@@ -4,6 +4,7 @@
  box-sizing: border-box;
  list-style-type: none;
  font-family: 'Alegreya Sans SC', sans-serif;
+ scroll-behavior: smooth;
 }
 
 header .carrito-nav{

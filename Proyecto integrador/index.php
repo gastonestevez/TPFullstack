@@ -72,13 +72,13 @@
           <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="card-img-top d-block w-100" src="img/IMG_2929.jpg" alt="Card image cap">
+                    <img class="card-img-top d-block w-100" src="img/IMG_2929.jpg" alt="Portada Logo">
                   </div>
                 <div class="carousel-item">
-                  <img class="card-img-top d-block w-100" src="img/card_sample1.png" alt="Second slide">
+                  <img class="card-img-top d-block w-100" src="img/card_sample1.png" alt="Portada slide">
                 </div>
                 <div class="carousel-item">
-                  <img class="card-img-top d-block w-100" src="img/card_sample2.png" alt="Third slide">
+                  <img class="card-img-top d-block w-100" src="img/card_sample2.png" alt="Portada 2 slide">
                 </div>
               </div>
             </div>
