@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <header>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC" rel="stylesheet">
-		<link rel="stylesheet" href="css/styles.css">
-    <title>BIGFASHION</title>
-  </header>
-  <section class="general">
+  <section class="general" id="Seccionregistrarse">
        <div class="registro">
        <img src="img/img_2929.jpg" alt="logo">
        <div class="titulos">

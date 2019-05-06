@@ -15,16 +15,13 @@ header .carrito-nav{
 .tarjetaPrincipal {
   background-image: url('../img/background_home.png');
   background-size: cover;
-  background-color: black;
-}
-body{
-  height: 450px; /*revisar esto*/
 }
 
-section .seccionLogin{
+section.sectorLogin{
   background-image: url('../img/login_paint.jpg');
   background-size: cover;
 }
+
 div.login{
   width: 80%;
   margin: 0 auto;

@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <section class="seccionLogin">
+<section class="sectorLogin" id="Seccionlogin">
      <div class="login">
        <img src="img/img_2929.jpg" alt="logo">
         <h2>Mi cuenta en <strong>BIGFASHION</strong></h2>
@@ -17,5 +15,4 @@
               <button type="submit" name="enviar">ingresar</button>
             </form>
       </div>
-  </section>
-</html>
+</section>
