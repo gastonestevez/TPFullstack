@@ -1,15 +1,15 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <section class="general" id="Seccionregistrarse">
-       <div class="registro">
-       <img src="img/img_2929.jpg" alt="logo">
-       <div class="titulos">
+ <section class="general" id="Seccionregistrarse">
+  <div class="registro">
+      <img src="img/img_2929.jpg" alt="logo">
+
+      <div class="titulos">
         <h2>Mi cuenta en <strong>BIGFASHION</strong></h2>
-        <h3> Registrate</h3>
-        <h4> y enterate de nuestras novedades y Ofertas!</h4>
-        </div>
-        <div class="campos">
-            <form class="registracion" action="index.html" method="post">
+        <h3>Registrate</h3>
+        <h4>y enterate de nuestras novedades y Ofertas!</h4>
+      </div>
+
+      <div class="campos">
+        <form class="registracion" action="index.html" method="post">
               <h5>Nombre</h5>
               <input id="nombre" type="text" name="nombre" value="" placeholder="Ingresa tu nombre"><br><br>
               <h5>Apellido</h5>
@@ -45,21 +45,18 @@
                 <option value="Sgo. del Estero">Sgo. del Estero</option>
                 <option value="Tierra del Fuego">Tierra del Fuego</option>
                 <option value="Tucuman">Tucuman</option>
-                    </select>
+              </select>
                 <h5>Ingresa tu password</h5>
                 <input id="pass" type="password" name="pass" value><br><br>
                 <h5>Ingresa tu password nuevamente</h5>
                 <input id="pass" type="password" name="pass" value><br><br>
               <div class="novedades">
-              <input type="checkbox" name="novedades" value="">
-              <label for="novedades">Te gustaria recibir novedades de BIG FASHION por mail? </label>
-              <button type="submit" name="resgistro">Registrarme</button>
+                <input type="checkbox" name="novedades" value="">
+                <label for="novedades">Te gustaria recibir novedades de BIG FASHION por mail? </label>
               </div>
-            </section>
-
-          </div>
-          </div>
-            </form>
-            </section>
-  </body>
-</html>
+                <button class="btn btn-dark d-block mx-auto" type="submit" name="resgistro">Registrarme</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

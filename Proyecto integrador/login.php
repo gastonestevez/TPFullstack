@@ -12,7 +12,7 @@
               <input type="checkbox" name="recordame" value="">
               <label for="recordame">recordame</label>
             </section>
-              <button type="submit" name="enviar">ingresar</button>
+              <button class="btn btn-dark d-block mx-auto" type="submit" name="enviar">ingresar</button>
             </form>
       </div>
 </section>
