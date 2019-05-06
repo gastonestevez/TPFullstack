@@ -4,11 +4,27 @@
  box-sizing: border-box;
  list-style-type: none;
 }
+
+header .logo-nav{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+header .carrito-nav{
+  color: #555555;
+  margin: 0px 10px 0px 10px;
+}
+
 body{
   font-family: 'Alegreya Sans SC', sans-serif;
   background-image: url(../img/login_paint.jpg);
   background-size: cover;
   height: 450px;
+}
+
+.tarjeta-intro{
+
 }
 div.login{
   width: 80%;

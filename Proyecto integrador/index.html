@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <!-- Icons -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <!-- Styles -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/normalize.css">
@@ -17,53 +17,67 @@
     <title>BIG FASHION</title>
   </head>
   <body>
-  <header>
-    <main>
-      <!-- Aca va la barra con un logo centrado -->
-    </main>
+   <header>
     <!-- Nav Nav Nav -->
-    <nav class="navbar navbar-dark bg-dark">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="true" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-  
-        <div class="navbar-collapse collapse show" id="navbarsExample01" style="">
-          
-          <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                  <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
-                </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Indumentaria</a>
-              <div class="dropdown-menu" aria-labelledby="dropdown01">
-                <a class="dropdown-item" href="#">Camperas</a>
-                <a class="dropdown-item" href="#">Remeras manga larga</a>
-                <a class="dropdown-item" href="#">Chalecos</a>
-                <a class="dropdown-item" href="#">Chombas</a>
-                <a class="dropdown-item" href="#">Bermudas</a>
-                <a class="dropdown-item" href="#">Musculosas</a>
-                <a class="dropdown-item" href="#">Camisas</a>
-                <a class="dropdown-item" href="#">Cinturones</a>
-
-
-              </div>
-            
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Registrarse</a>
-            </li>
+    <nav class="navbar navbar-template navbar-expand-lg navbar-light bg-light mb-4 ">
+      <!-- Toggler/collapsibe Button -->
+      <button class="navbar-toggler navbar-toggler-left" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <!-- Brand -->
+      <a class="navbar-brand mx-auto mb-0 h1"  href="#">
+        Big Fashion
+      </a>
+      <div class="d-flex flex-row order-2 order-lg-3">
+          <ul class="navbar-nav flex-row">
+            <li class="nav-item"><a href="#" class="nav-link px-2 carrito-nav">
+              <i class=" fas fa-shopping-cart"></i></a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 carrito-nav">
+              <i class="fas fa-heart"></i></a></li>
           </ul>
-          <form class="form-inline my-2 my-md-0">
-            <input class="form-control" type="text" placeholder="Buscar" aria-label="Search">
-          </form>
-        </div>
-      </nav>
+      </div>
+      <!-- Navbar links -->
+      <div class="collapse navbar-collapse order-3 order-lg-2" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-home carrito-nav"></i>Inicio</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-tshirt carrito-nav"></i>Indumentaria</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="#">Camperas</a>
+              <a class="dropdown-item" href="#">Remeras manga larga</a>
+              <a class="dropdown-item" href="#">Chalecos</a>
+              <a class="dropdown-item" href="#">Chombas</a>
+              <a class="dropdown-item" href="#">Bermudas</a>
+              <a class="dropdown-item" href="#">Musculosas</a>
+              <a class="dropdown-item" href="#">Camisas</a>
+              <a class="dropdown-item" href="#">Cinturones</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-sign-in-alt carrito-nav"></i>Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-user-plus carrito-nav"></i>Registrarse</a>
+          </li> 
+        </ul>
+      </div>
+    </nav>
   </header>
+  <div class="container">
+    
   <main>
-
+      <div class="card mx-auto mt-4" style="width: 18rem;">
+          <img class="card-img-top" src="img/IMG_2929.jpg" alt="Card image cap">
+          <div class="card-body ">
+            <h4 class="card-title text-center">Grandes hombres</h5>
+            <h6 class="card-subtitle mb-2 text-muted text-center">Tu mejor versión</h6>
+            <p class="card-text text-center">En  Big Fashion encontrarás la mejor ropa <strong>casual</strong> e <strong>informal</strong> para que te sientas super cómodo en todo momento.</p>
+            <a href="#" class="btn btn-primary d-block mx-auto">¡Empecemos!</a>
+          </div>
+        </div>
   </main>
   <section>
 
@@ -71,5 +85,7 @@
   <footer>
 
   </footer>
+  
+</div>
   </body>
 </html>
