@@ -7,6 +7,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
     <!-- Styles -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css/styles.css">
     <!--Bootstrap-->
@@ -27,7 +28,7 @@
       
       <!-- Brand -->
       <a class="navbar-brand mx-auto mb-0 h1"  href="#">
-        Big Fashion
+        <span class="brand">Big Fashion</span> 
       </a>
       <div class="d-flex flex-row order-2 order-lg-3">
           <ul class="navbar-nav flex-row">
