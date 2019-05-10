@@ -6,6 +6,7 @@
         <h4> ¡Qué bueno verte!</h4><br>
           <div class="datos">
             <form class="login" action="index.html" method="post">
+              <label for="email">email</label>
               <input type="email" name="email" value="" placeholder="Ingresa tu correo electrónico"><br><br>
               <input type="password" name="contraseña" value="" placeholder="Ingresa tu contraseña"><br><br>
             <section class="recordame">
