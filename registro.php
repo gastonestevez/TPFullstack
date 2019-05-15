@@ -1,3 +1,4 @@
+
  <section class="general" id="Seccionregistrarse">
   <div class="registro">
       <img src="img/img_2929.jpg" alt="logo">

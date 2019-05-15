@@ -17,7 +17,8 @@
             <h4 class="card-title text-center">Grandes hombres</h5>
             <h6 class="card-subtitle mb-2 text-muted text-center">Tu mejor versión</h6>
             <p class="card-text text-center">En Big Fashion encontrarás la mejor ropa <strong>casual</strong> e <strong>informal</strong> para que te sientas super cómodo en todo momento.</p>
-            <a href="#Seccionregistrarse" class="btn btn-primary d-block mx-auto">¡Empecemos!</a>
+            <a href="login.php" class="btn btn-primary d-block mx-auto">¡Empecemos!</a>
           </div>
       </div>
+      
   </main>
