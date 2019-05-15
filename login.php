@@ -3,7 +3,6 @@
 <?php include 'include/navegacion.php'?> 
 
 <?php
-session_start();
 if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST) ){
   $email = "p@g.com";
   $pwd = "p";

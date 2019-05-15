@@ -22,7 +22,7 @@
       <div class="collapse navbar-collapse order-3 order-lg-2" id="collapsibleNavbar">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fas fa-home carrito-nav"></i>Inicio</a>
+            <a class="nav-link" href="index.php"><i class="fas fa-home carrito-nav"></i>Inicio</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-tshirt carrito-nav"></i>Indumentaria</a>
@@ -37,20 +37,19 @@
               <a class="dropdown-item" href="#">Cinturones</a>
             </div>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="login.php"><i class="fas fa-sign-in-alt carrito-nav"></i>Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="registro.php"><i class="fas fa-user-plus carrito-nav"></i>Registrarse</a>
+          </li>
           <span class="navbar-text">
               <?php
-                session_start();
                 if(!empty($_SESSION) && !empty($_SESSION['email'])){
                   echo 'Bienvenido ' . $_SESSION['email'];
                 }
               ?>
-          </span>
-          <li class="nav-item">
-            <a class="nav-link" href="#Seccionlogin"><i class="fas fa-sign-in-alt carrito-nav"></i>Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#Seccionregistrarse"><i class="fas fa-user-plus carrito-nav"></i>Registrarse</a>
-          </li> 
+          </span> 
         </ul>
       </div>
     </nav>
