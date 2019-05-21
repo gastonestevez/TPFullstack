@@ -1,3 +1,6 @@
+<?php include 'include/head.php'?>
+<body>
+<?php include 'include/navegacion.php'?>
 
  <section class="general" id="Seccionregistrarse">
   <div class="registro">
@@ -76,3 +79,4 @@
     </div>
   </div>
 </section>
+</body>
