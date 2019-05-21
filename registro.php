@@ -23,10 +23,16 @@
                 <input id="apellido" type="text" class="form-control" name="apellido" placeholder="Ingresa tu Apellido">
               </div>
           </div>
-              <div class="form-group">
+          <div class="form-row">
+              <div class="form-group col-md-6">
                 <label for="inputEmail">E-mail</label>
                 <input id="mail" type="email" name="mail" class="form-control" placeholder="Ingresa tu e-mail">
               </div>
+              <div class="form-group col-md-6">
+                <label for="inputUsuario">Usuario</label>
+                <input id="nombre" type="text" class="form-control" name="usuario" placeholder="Ingresa tu usuario">
+              </div>
+          </div>
               <div class="form-group">
                 <label for="inputCumple">Fecha de nacimiento</label>
                 <input id="fechanacimiento" type="date" name="fechanacimiento" class="form-control" >
@@ -60,6 +66,13 @@
                   <option value="Tucuman">Tucuman</option>
                 </select>
               </div>
+              <label for="avatarImagen">Carga tu avatar</label>
+              
+              <div class="custom-file">
+              
+              <input class="custom-file-input" type="file" id="customFile">
+              <label class="custom-file-label" for="customFile"></label>
+              </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputPassword">Contraseña</label>
@@ -72,7 +85,7 @@
               </div>
               <div class="form-check">
                 <input type="checkbox" class="form-check-input" name="novedades" value="">
-                <label for="novedades" class="form-check-label">Te gustaria recibir novedades de <strong>BIG FASHION</strong> por mail? </label>
+                <label for="novedades" class="form-check-label">Aceptas términos y condicoines de <strong>BIG FASHION</strong>? </label>
               </div>
                 <button class="btn btn-dark d-block mx-auto mt-4 " type="submit" name="resgistro">Registrarme</button>
         </form>
@@ -80,3 +93,11 @@
   </div>
 </section>
 </body>
+
+<script>
+// Add the following code if you want the name of the file appear on select
+$(".custom-file-input").on("change", function() {
+  var fileName = $(this).val().split("\\").pop();
+  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+});
+</script>
