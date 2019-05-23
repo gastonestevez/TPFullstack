@@ -9,12 +9,13 @@ $pass1 = '';
 $pass2 = '';
 
 
- if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST)){   
+ if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST)){
     $nombre = $_POST['nombre'];
     $apellido = $_POST['apellido'];
     $user = $_POST['usuario'];
     $email = $_POST['email'];
     $nacimiento = $_POST['fechanacimiento'];
+    $provincia = $_POST['provincia'];
     $pass1 = $_POST['pass'];
     $pass2 = $_POST['passconf'];
 
@@ -54,7 +55,7 @@ $pass2 = '';
         }else if(empty($_POST['fechanacimiento'])){
             $errors['fechanacimiento'][]= 'Ingrese una fecha';
       }
-      
+
       if(!isset($_POST['pass']) || !isset($_POST['passconf'])){
         $errors['password'][]= 'Falta el campo password';
       }else if($_POST['pass'] != $_POST['passconf']){
@@ -63,12 +64,20 @@ $pass2 = '';
           $errors['password'][]= 'El password debe tener entre 6 y 12 caracteres';
       }
 
+      if(isset($_POST['provincia'])){
+        if ($_POST['provincia'] == 'seleccion'){
+          $errors['provincia'][]= 'Debes seleccionar una opcion';
+      }
+        }
+
       if(!isset($_FILES['avatar'])){
         $errors['avatar'][]= 'Debe cargar un avatar';
       }else if(empty($_FILES['avatar'])){
           $errors['avatar'][]= 'El avatar es requerido';
       }
-    var_dump($errors);
+      if(!isset($_POST['terminos'])){
+        $errors['terminos'][]='Debe aceptar los terminos y condiciones para pode continuar';
+      }
     if(empty($errors)){
       $archivo = $_FILES['avatar']['tmp_name'];
       $nombreArchivo = $_FILES['avatar']['name'];
@@ -85,16 +94,14 @@ $pass2 = '';
           'provincia' => $_POST['provincia'],
           'avatar' => $miArchivo,
         ];
-        
+
         $archivo = 'prueba.json';
-        
+
         $usuarios = file_get_contents($archivo);
         $usuariosDecoded = json_decode($usuarios,true);
         $usuariosDecoded[] = $usuario;
         $jsonFinal = json_encode($usuariosDecoded, JSON_PRETTY_PRINT);
-        file_put_contents($archivo,$jsonFinal);    
-        
-      var_dump($usuario);
+        file_put_contents($archivo,$jsonFinal);
     }
 }
 ?>
@@ -145,6 +152,7 @@ $pass2 = '';
               <div class="form-group">
               <label for="inputProvincia">Provincia</label>
                 <select class="form-control" name="provincia" id="provincia">
+                  <option value="seleccion">Seleccione una opcion</option>
                   <option value="Buenos Aires">Bs. As.</option>
                   <option value="Catamarca">Catamarca</option>
                   <option value="Chaco">Chaco</option>
@@ -168,11 +176,12 @@ $pass2 = '';
                   <option value="Sgo. del Estero">Sgo. del Estero</option>
                   <option value="Tierra del Fuego">Tierra del Fuego</option>
                   <option value="Tucuman">Tucuman</option>
-                </select>
+               </select>
               </div>
+              <p><?= $errors['provincia'][0]?? '' ?> </p>
               <label for="avatarImagen">Carga tu avatar</label>
-              
-              <div class="custom-file"> 
+
+              <div class="custom-file">
                 <input class="custom-file-input" type="file" name="avatar" id="customFile">
                 <label class="custom-file-label" for="customFile"></label>
               </div>
@@ -189,8 +198,9 @@ $pass2 = '';
                 </div>
               </div>
               <div class="form-check">
-                <input type="checkbox" class="form-check-input" name="novedades" value="">
+                <input type="checkbox" class="form-check-input" name="terminos">
                 <label for="novedades" class="form-check-label">Aceptas términos y condicoines de <strong>BIG FASHION</strong>? </label>
+                <p><?= $errors['terminos'][0] ?? ''?></p>
               </div>
                 <button class="btn btn-dark d-block mx-auto mt-4 " type="submit" name="resgistro">Registrarme</button>
         </form>
@@ -204,4 +214,4 @@ $(".custom-file-input").on("change", function() {
   var fileName = $(this).val().split("\\").pop();
   $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
 });
-</script>
+</script> -->

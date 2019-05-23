@@ -3,31 +3,47 @@
 <?php include 'include/navegacion.php'?>
 
 <?php
-if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST) ){
-  $email = "p@g.com";
-  $pwd = "p";
-  $errors = [];
+session_start();
+ $errors=[];
 
-  $emailIngresado = $_POST['email'];
-  $pwdIngresada = $_POST['pwd'];
+if(!empty ($_POST)){
 
-  if(empty($_POST['email'])){
-    $errors['email'][] = "el mail esta vacio.";
-  }
-  if(!filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)){
-    $errors['email'][] = "email invalido!";
-  }
-  if(empty($_POST['pwd'])){
-    $errors['pwd'][] = "completa el password";
-  }
+  if(!isset($_POST['email'])){
+    $errors['email'][]= 'Falta el campo email';
+  } else{
 
+    if(empty($_POST['email'])){
+      $errors['email'][]= 'El email es requerido';
+    }
 
-  if($email == $emailIngresado && $pwd == $pwdIngresada){
-    session_start();
-    $_SESSION['email'] = $emailIngresado;
-    header('location: index.php');
-  }else{
-    $errors['coincidencia'][] = 'Tu mail o contraseña no son validos.';
+    if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
+    $errors['email'][]= 'El email no es valido';
+      }
+    }
+
+    if(!isset($_POST['password'])){
+      $errors['password'][]= 'Falta el campo password';
+    } else{
+
+      if(strlen($_POST['password'])<5){
+        $errors['email'][]= 'El password debe tener entre 6 y 12 caracteres';
+        if (empty ($errors)){
+
+          $data = file_get_contents('data.json');
+
+          $usuarios = json_decode ($data, true);
+
+          foreach ($usuarios as $usuario) {
+            if ($usuario['email'] === $_POST['email'] && $usuario['password'] === $_POST['password']){
+                $_SESSION['email'] = $usuario['email'];
+                header('location:index.php');
+                break;
+            }
+          }
+          $errors['sin_usuario'] = 'El usuario no se encuentra registrado';
+        }
+        }
+
   }
 
 }
@@ -43,12 +59,13 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST) ){
           <div class="datos">
             <form class="login" action="login.php" method="post">
             <p><?= $errors['coincidencia'][0] ?? '' ?></p>
-              <label for="email">Email:</label>
-              <input type="text" name="email" value="" placeholder="Ingresa tu correo electrónico"><br><br>
+              <label for="text">Usuario:</label>
+              <input type="text" name="usuario" value="" placeholder="Ingresa tu ususario"><br><br>
               <p><?= $errors['email'][0] ?? '' ?></p>
               <label for="contrasena">Contraseña:</label>
-              <input type="password" name="pwd" value="" placeholder="Ingresa tu contraseña"><br><br>
-              <p><?= $errors['pwd'][0] ?? '' ?></p>
+              <input type="password" name="password" value="" placeholder="Ingresa tu contraseña"><br><br>
+              <p><?= $errors['password'][0] ?? '' ?></p>
+              <p><?= $errors['sin_usuario'] ?? '' ?></p>
             <section class="recordame">
               <input type="checkbox" name="recordame" value="">
               <label for="recordame">recordame</label>

@@ -78,5 +78,21 @@
         "password": "$2y$10$Sr9AjWvX7O\/pcmUXrSEefutZBmqoeNtcmBLZobBwRbfs028Est\/yy",
         "provincia": "Rio Negro",
         "avatar": "media\/bd46d80a07a62b584b192d44a1db46d2.png"
+    },
+    {
+        "nombre": "bag",
+        "email": "andreabag@gmail.com",
+        "nacimiento": "2019-05-25",
+        "password": "$2y$10$.eVUJ.5BmEgTYWexs\/y93e1omQyE6DFMABTyoDTeNrgVoO1NyY.rO",
+        "provincia": "Buenos Aires",
+        "avatar": "media\/a3fccbd9968d5cbc632396ce43ac46ef.jpeg"
+    },
+    {
+        "nombre": "bag",
+        "email": "ana@gmail.com",
+        "nacimiento": "2019-05-25",
+        "password": "$2y$10$H90f\/1spNXj31IaAeQipae5jA8xDVH9NMzIGFFZR.7TUCGx7QQQv.",
+        "provincia": "Catamarca",
+        "avatar": "media\/d41d8cd98f00b204e9800998ecf8427e."
     }
 ]
