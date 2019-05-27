@@ -9,15 +9,15 @@ $pass1 = '';
 $pass2 = '';
 
 
- if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST)){
-    $nombre = $_POST['nombre'];
-    $apellido = $_POST['apellido'];
-    $user = $_POST['usuario'];
-    $email = $_POST['email'];
-    $nacimiento = $_POST['fechanacimiento'];
-    $provincia = $_POST['provincia'];
-    $pass1 = $_POST['pass'];
-    $pass2 = $_POST['passconf'];
+if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST)){
+  $nombre = $_POST['nombre'];
+  $apellido = $_POST['apellido'];
+  $user = $_POST['usuario'];
+  $email = $_POST['email'];
+  $nacimiento = $_POST['fechanacimiento'];
+  $provincia = $_POST['provincia'];
+  $pass1 = $_POST['pass'];
+  $pass2 = $_POST['passconf'];
 
       if(!isset($_POST['email'])){
         $errors['email'][]= 'Falta el campo email';
@@ -111,13 +111,16 @@ $pass2 = '';
 <?php include 'include/navegacion.php'?>
 
  <section class="general" id="Seccionregistrarse">
+   <div class="commonr">
+     <ul>
+       <li class="cliente"><a href="login.php">¿Ya eres cliente?</a></li>
+       <li class="nuevo"><a href="registro.php">¿Nuevo en BIGFASHION?</a></li>
+     </ul>
+   </div>
   <div class="registro">
-      <img src="img/img_2929.jpg" alt="logo">
-
       <div class="titulos">
         <h2>Mi cuenta en <strong>BIGFASHION</strong></h2>
-        <h3>Registrate</h3>
-        <h4>y enterate de nuestras novedades y Ofertas!</h4>
+        <h3>Registrate y enterate de nuestras novedades y Ofertas!</h3><br>
       </div>
 
         <form class="formRegistro"  action="registro.php" method="post" enctype="multipart/form-data">
@@ -147,7 +150,7 @@ $pass2 = '';
           </div>
               <div class="form-group">
                 <label for="inputCumple">Fecha de nacimiento</label>
-                <input id="fechanacimiento" value="<?= $fechanacimiento?>" type="date" name="fechanacimiento" class="form-control" >
+                <input id="fechanacimiento" value="<?= $nacimiento?>" type="date" name="fechanacimiento" class="form-control" >
               </div>
               <div class="form-group">
               <label for="inputProvincia">Provincia</label>
@@ -193,7 +196,7 @@ $pass2 = '';
                   <p><?= $errors['password'][0] ?? '' ?></p>
                 </div>
                 <div class="form-group col-md-6">
-                  <label>Ingresa tu contraseña nuevamente</label>
+                  <label>Reingresa tu contraseña</label>
                   <input id="passconf" class="form-control" type="password" name="passconf" value>
                 </div>
               </div>
@@ -214,4 +217,4 @@ $(".custom-file-input").on("change", function() {
   var fileName = $(this).val().split("\\").pop();
   $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
 });
-</script> -->
+</script>

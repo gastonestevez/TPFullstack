@@ -94,5 +94,21 @@
         "password": "$2y$10$H90f\/1spNXj31IaAeQipae5jA8xDVH9NMzIGFFZR.7TUCGx7QQQv.",
         "provincia": "Catamarca",
         "avatar": "media\/d41d8cd98f00b204e9800998ecf8427e."
+    },
+    {
+        "nombre": "lolo",
+        "email": "lolo@gmail.com",
+        "nacimiento": "2019-05-25",
+        "password": "$2y$10$zDFbOpr6z8Pf42hZDUNhoe6LMEA9fysfN1lIZZWC19i\/sPQ1Wrhom",
+        "provincia": "Catamarca",
+        "avatar": "media\/8bb1f48d934b65fc339f35b4214085c0.jpeg"
+    },
+    {
+        "nombre": "lolo",
+        "email": "lolo@gmail.com",
+        "nacimiento": "2019-05-25",
+        "password": "$2y$10$tiGcwVHdKQA3Vcd38OIkWuFecEkSWxDI0qCM4\/RKWrnB6tIWcYNTO",
+        "provincia": "Catamarca",
+        "avatar": "media\/8bb1f48d934b65fc339f35b4214085c0.jpeg"
     }
 ]

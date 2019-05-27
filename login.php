@@ -1,41 +1,37 @@
-<?php include 'include/head.php'?>
-<body>
-<?php include 'include/navegacion.php'?>
-
 <?php
-session_start();
- $errors=[];
 
-if(!empty ($_POST)){
+include 'include/head.php';
+include 'include/navegacion.php';
 
-  if(!isset($_POST['email'])){
-    $errors['email'][]= 'Falta el campo email';
-  } else{
+$errors=[];
+$usuario ='';
+$password ='';
 
-    if(empty($_POST['email'])){
-      $errors['email'][]= 'El email es requerido';
+if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST)){
+   $usuario = $_POST['usuario'];
+   $password = $_POST['passwod'];
+
+  if(!isset($_POST['usuario'])){
+    $errors['usuario'][]= 'Ingresa su nombre de usuario';
+  }else{
+    if(empty($_POST['usuario'])){
+      $errors['usuario'][]= 'El usuario es requerido';
     }
-
-    if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
-    $errors['email'][]= 'El email no es valido';
-      }
-    }
-
+  }
     if(!isset($_POST['password'])){
-      $errors['password'][]= 'Falta el campo password';
-    } else{
-
+      $errors['password'][]= 'Ingrese su contraseña';
+    }else{
       if(strlen($_POST['password'])<5){
-        $errors['email'][]= 'El password debe tener entre 6 y 12 caracteres';
-        if (empty ($errors)){
+        $errors['password'][]= 'La contraseña debe tener entre 6 y 12 caracteres';
 
+        if (empty ($errors)){
           $data = file_get_contents('data.json');
 
           $usuarios = json_decode ($data, true);
 
           foreach ($usuarios as $usuario) {
-            if ($usuario['email'] === $_POST['email'] && $usuario['password'] === $_POST['password']){
-                $_SESSION['email'] = $usuario['email'];
+            if ($usuario['usuario'] === $_POST['usuario'] && $usuario['password'] === $_POST['password']){
+                $_SESSION['usuario'] = $usuario['usuario'];
                 header('location:index.php');
                 break;
             }
@@ -50,28 +46,42 @@ if(!empty ($_POST)){
 
 ?>
 
-<section class="sectorLogin" id="Seccionlogin">
-     <div class="login">
-       <img src="img/img_2929.jpg" alt="logo">
-        <h2>Mi cuenta en <strong>BIGFASHION</strong></h2>
-        <h3> ¿Ya eres cliente?</h3>
-        <h4> ¡Qué bueno verte!</h4><br>
-          <div class="datos">
-            <form class="login" action="login.php" method="post">
-            <p><?= $errors['coincidencia'][0] ?? '' ?></p>
-              <label for="text">Usuario:</label>
-              <input type="text" name="usuario" value="" placeholder="Ingresa tu ususario"><br><br>
-              <p><?= $errors['email'][0] ?? '' ?></p>
-              <label for="contrasena">Contraseña:</label>
-              <input type="password" name="password" value="" placeholder="Ingresa tu contraseña"><br><br>
-              <p><?= $errors['password'][0] ?? '' ?></p>
-              <p><?= $errors['sin_usuario'] ?? '' ?></p>
-            <section class="recordame">
-              <input type="checkbox" name="recordame" value="">
-              <label for="recordame">recordame</label>
-            </section>
-              <button class="btn btn-dark d-block mx-auto" type="submit" name="enviar">ingresar</button>
-            </form>
-      </div>
+
+<body>
+<section class="Login" id="Seccionlogin">
+     <div class="common">
+       <ul>
+         <li class="cliente"><a href="login.php">¿Ya eres cliente?</a></li>
+         <li class="nuevo"><a href="registro.php">¿Nuevo en BIGFASHION?</a></li>
+       </ul>
+     </div>
+      <div class="datos">
+        <div class="titulos">
+          <h3>Mi cuenta en  <strong>BIGFASHION</strong></h3>
+          <h4> ¡Qué bueno verte!</h4><br>
+        </div>
+        <form class="formlogin"  action="login.php" method="post" enctype="multipart/form-data">
+          <p><?= $errors['coincidencia'][0] ?? '' ?></p>
+          <div class="form-row">
+              <div class="form-group col-md-8">
+                <label for="usuario">Usuario</label>
+                <input id="usuario" type="text" value="<?= $usuario?>"  class="form-control" name="usuario" placeholder="Ingresa tu usuario">
+                <p><?= $errors['usuario'][0] ?? '' ?></p>
+              </div>
+              <div class="form-group col-md-8">
+                <label for="password">Contraseña</label>
+                <input id="password" class="form-control" type="password" name="password"value="<?= $password?>"
+                placeholder="Ingresa tu contraseña">
+                <p><?= $errors['password'][0] ?? '' ?></p>
+              </div>
+                  <div class="Recordame">
+                <input type="checkbox" name="RECORDAME">
+                <label for="recordame">recordame</label>
+                <p><?= $errors['sin_usuario'] ?? '' ?></p>
+              </div>
+                <button class="btn btn-dark d-block mx-auto mt-4 " type="submit" name="resgistro">Ingresar</button>
+        </form>
+    </div>
+  </div>
 </section>
 </body>
