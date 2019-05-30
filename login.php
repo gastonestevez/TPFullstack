@@ -2,26 +2,28 @@
 
 include 'include/head.php';
 include 'include/navegacion.php';
+require 'include/validacion.php';
 
+$validacion = new Validacion();
 $errors=[];
 $usuario ='';
 $password ='';
 
-if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST)){
+if($validacion->esMethodPost()){
    $usuario = $_POST['usuario'];
-   $password = $_POST['passwod'];
+   $password = $_POST['password'];
 
-  if(!isset($_POST['usuario'])){
+  if(!$validacion->esUsuario()){
     $errors['usuario'][]= 'Ingresa su nombre de usuario';
   }else{
-    if(empty($_POST['usuario'])){
+    if($validacion->estaVacioUsuario()){
       $errors['usuario'][]= 'El usuario es requerido';
     }
   }
-    if(!isset($_POST['password'])){
+    if(!$validacion->esPassword()){
       $errors['password'][]= 'Ingrese su contraseña';
     }else{
-      if(strlen($_POST['password'])<5){
+      if(!$validacion->validaAnchoDePassword(5,13)){
         $errors['password'][]= 'La contraseña debe tener entre 6 y 12 caracteres';
 
         if (empty ($errors)){

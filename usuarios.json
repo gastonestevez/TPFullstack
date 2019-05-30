@@ -120,5 +120,15 @@
         "password": "$2y$10$F6EbwSlnBvT8xz\/Ycmv2BuqJnQCC\/0SvN0RsSVx\/b3EPh\/HK0SJiS",
         "provincia": "Jujuy",
         "avatar": "media\/d41d8cd98f00b204e9800998ecf8427e."
+    },
+    {
+        "nombre": "Gaston",
+        "apellido": "Estevez",
+        "usuario": "gastonestevez",
+        "email": "gaston@gmail.com",
+        "nacimiento": "1989-12-12",
+        "password": "$2y$10$\/CeDHCCzoFxH5qlZEcfkGelBjvAvu8VWINPYHtb8W\/9rb2cxBo9Je",
+        "provincia": "Buenos Aires",
+        "avatar": "media\/a78a42e58e9e2163676f9441565e9cfa.JPG"
     }
 ]
