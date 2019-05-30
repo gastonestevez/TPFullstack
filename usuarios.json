@@ -1,0 +1,124 @@
+[
+    {
+        "email": "ana@gmail.com",
+        "password": "lalalaa"
+    },
+    {
+        "email": "lol@gmail.com",
+        "password": "lololoo"
+    },
+    {
+        "nombre": "jaja",
+        "email": "ana@gmail.com",
+        "nacimiento": "2019-05-15",
+        "password": "$2y$10$aFqi\/bVpmQLuoXy2GpZMiuCDgBQiDIvlW11tBCpEgwF45dwm\/hkM.",
+        "provincia": "Chaco",
+        "avatar": "media\/7885422c7e0e20f450267a8f455a5a8c.png"
+    },
+    {
+        "nombre": "jaja",
+        "email": "ana@gmail.com",
+        "nacimiento": "2019-05-15",
+        "password": "$2y$10$uFg923vRBfa8ZRHLfoKFOetT19VOAgvOleKOddVZ4wYHY0hWQpCvi",
+        "provincia": "Chaco",
+        "avatar": "media\/7885422c7e0e20f450267a8f455a5a8c.png"
+    },
+    {
+        "nombre": "lolo",
+        "email": "hudi@gmail.com",
+        "nacimiento": "2019-05-26",
+        "password": "$2y$10$EQsy0nDsoStfzWpEJ4.8DeG4Y.JRL4QQu3SXofcQnfkFbLLi6Fvyy",
+        "provincia": "Corrientes",
+        "avatar": "media\/6ae70230d2b4faa1c5654051fc8fbeff.png"
+    },
+    {
+        "nombre": "mili",
+        "apellido": "kili",
+        "usuario": "ananana",
+        "email": "bigfashionba@gmail.com",
+        "nacimiento": "2019-05-25",
+        "password": "$2y$10$E97OX1xhvNc7wxZDuRpQ6uHF9JvZM7r1B90erwgVwH149zN9Bi276",
+        "provincia": "Jujuy",
+        "avatar": "media\/9a1f64601b53c62dd8ed54a622f1ac28.jpg"
+    },
+    {
+        "nombre": "mili",
+        "apellido": "kili",
+        "usuario": "ananana",
+        "email": "bigfashionba@gmail.com",
+        "nacimiento": "2019-05-25",
+        "password": "$2y$10$fdaIPXzLOYfnAlUp\/F5I\/ehmSdF3.LUTt.m11.yEAHjaMmssTnI8q",
+        "provincia": "Chaco",
+        "avatar": "media\/4156f13cd581fcf5430e87cbbff346ed.jpg"
+    },
+    {
+        "nombre": "mili",
+        "apellido": "kili",
+        "usuario": "ananana",
+        "email": "bigfashionba@gmail.com",
+        "nacimiento": "2019-05-25",
+        "password": "$2y$10$ZEik696Jm5\/ToPOdebWNouIWhwY8SPjhih1sPAQZewBzAg879XcDO",
+        "provincia": "Chaco",
+        "avatar": "media\/4156f13cd581fcf5430e87cbbff346ed.jpg"
+    },
+    {
+        "nombre": "as",
+        "apellido": "kili",
+        "usuario": "lolola",
+        "email": "hudi@gmail.com",
+        "nacimiento": "2019-05-10",
+        "password": "$2y$10$gcM\/e\/ZfFHmKbRPdWuJ62ubfTiS9QITQy5cjQGMn\/UOZew6I2uEAC",
+        "provincia": "La Rioja",
+        "avatar": "media\/d41d8cd98f00b204e9800998ecf8427e."
+    },
+    {
+        "nombre": "as",
+        "apellido": "kili",
+        "usuario": "lolola",
+        "email": "hudi@gmail.com",
+        "nacimiento": "2019-05-10",
+        "password": "$2y$10$VUJ16ORPlljhIMT3EDxdO.ed.qGhzFGnA.CFhJ5P.XowLBUz2BB5.",
+        "provincia": "La Pampa",
+        "avatar": "media\/d41d8cd98f00b204e9800998ecf8427e."
+    },
+    {
+        "nombre": "as",
+        "apellido": "kili",
+        "usuario": "lolola",
+        "email": "hudi@gmail.com",
+        "nacimiento": "2019-05-10",
+        "password": "$2y$10$ASMAXdGI5IUxArfBcVZnEuqPSmY9oUqtG7z0q66wvI.P\/uo9sA5NK",
+        "provincia": "La Pampa",
+        "avatar": "media\/d41d8cd98f00b204e9800998ecf8427e."
+    },
+    {
+        "nombre": "as",
+        "apellido": "kili",
+        "usuario": "lolola",
+        "email": "hudi@gmail.com",
+        "nacimiento": "2019-05-10",
+        "password": "$2y$10$6OhEZR8nPlOlz.E9GcU2ueD6yKmvsRndX93bFuq8DY4WPBaATSliC",
+        "provincia": "La Pampa",
+        "avatar": "media\/d41d8cd98f00b204e9800998ecf8427e."
+    },
+    {
+        "nombre": "as",
+        "apellido": "kili",
+        "usuario": "lolola",
+        "email": "hudi@gmail.com",
+        "nacimiento": "2019-05-10",
+        "password": "$2y$10$QcG5XgInb03yVgq\/n7tEFe0tgTur8to6Yon99xTPvOo.ILe9jmHSm",
+        "provincia": "La Pampa",
+        "avatar": "media\/d41d8cd98f00b204e9800998ecf8427e."
+    },
+    {
+        "nombre": "as",
+        "apellido": "kili",
+        "usuario": "asasas",
+        "email": "an@hotmail.com",
+        "nacimiento": "2019-05-17",
+        "password": "$2y$10$F6EbwSlnBvT8xz\/Ycmv2BuqJnQCC\/0SvN0RsSVx\/b3EPh\/HK0SJiS",
+        "provincia": "Jujuy",
+        "avatar": "media\/d41d8cd98f00b204e9800998ecf8427e."
+    }
+]

@@ -87,7 +87,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST)){
       move_uploaded_file($archivo,$miArchivo);
       $usuario = [
         'nombre' => $_POST['nombre'],
-        'nombre' => $_POST['apellido'],
+        'apellido' => $_POST['apellido'],
+         'usuario' => $_POST['usuario'],
           'email' => $_POST['email'],
           'nacimiento' => $_POST['fechanacimiento'],
           'password' => password_hash($_POST['pass'],PASSWORD_DEFAULT),
@@ -95,13 +96,15 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST)){
           'avatar' => $miArchivo,
         ];
 
-        $archivo = 'prueba.json';
+        $archivo = 'usuarios.json';
 
         $usuarios = file_get_contents($archivo);
         $usuariosDecoded = json_decode($usuarios,true);
         $usuariosDecoded[] = $usuario;
         $jsonFinal = json_encode($usuariosDecoded, JSON_PRETTY_PRINT);
         file_put_contents($archivo,$jsonFinal);
+        header('location:homesession.php');
+
     }
 }
 ?>

@@ -5,10 +5,10 @@
       <button class="navbar-toggler navbar-toggler-left" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
-      
+
       <!-- Brand -->
       <a class="navbar-brand mx-auto mb-0 h1"  href="#">
-        <span class="brand">Big Fashion</span> 
+        <span class="brand">Big Fashion</span>
       </a>
       <div class="d-flex flex-row order-2 order-lg-3">
           <ul class="navbar-nav flex-row">
@@ -37,10 +37,10 @@
               <a class="dropdown-item" href="#">Cinturones</a>
             </div>
           </li>
-          <li class="nav-item">
+          <li class="nav-item1">
             <a class="nav-link" href="login.php"><i class="fas fa-sign-in-alt carrito-nav"></i>Login</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item2">
             <a class="nav-link" href="registro.php"><i class="fas fa-user-plus carrito-nav"></i>Registrarse</a>
           </li>
           <span class="navbar-text">
@@ -49,7 +49,7 @@
                   echo 'Bienvenido ' . $_SESSION['email'];
                 }
               ?>
-          </span> 
+          </span>
         </ul>
       </div>
     </nav>

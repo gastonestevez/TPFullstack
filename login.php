@@ -25,7 +25,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST)){
         $errors['password'][]= 'La contraseña debe tener entre 6 y 12 caracteres';
 
         if (empty ($errors)){
-          $data = file_get_contents('data.json');
+          $data = file_get_contents('usuarios.json');
 
           $usuarios = json_decode ($data, true);
 
@@ -61,6 +61,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST)){
           <h4> ¡Qué bueno verte!</h4><br>
         </div>
         <form class="formlogin"  action="login.php" method="post" enctype="multipart/form-data">
+        <div class="form-row">
           <p><?= $errors['coincidencia'][0] ?? '' ?></p>
           <div class="form-row">
               <div class="form-group col-md-8">
@@ -79,7 +80,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST)){
                 <label for="recordame">recordame</label>
                 <p><?= $errors['sin_usuario'] ?? '' ?></p>
               </div>
-                <button class="btn btn-dark d-block mx-auto mt-4 " type="submit" name="resgistro">Ingresar</button>
+               <button class="btn btn-dark d-block mx-auto mt-4 " type="submit" name="login">Ingresar</button>
+               <section class="cambiar_contrasena">
+                 <a href="cambiar_contrasena.php">¿Olvidaste tu contraseña?</a>
+               </section>
+            </div>
         </form>
     </div>
   </div>
