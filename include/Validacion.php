@@ -44,5 +44,23 @@ class Validacion {
        return (strlen($_POST['password']) > $minimo) &&
        (strlen($_POST['password'])<$maximo);
     }
+
+    /**
+     * Post: Obtiene usuario de Json, si no lo encuentra retorna null.
+     */
+    public function obtenerUsuarioIngresado(){
+        $data = file_get_contents('usuarios.json');
+        $usuarios = json_decode ($data, true);
+        $usuarioEncontrado = null;
+        foreach ($usuarios as $usuario) {
+            
+            if ($usuario['usuario'] === $_POST['usuario'] && password_verify($_POST['password'],$usuario['password'])){
+                $usuarioEncontrado = $usuario['usuario'];
+                var_dump($usuarioEncontrado);
+            }
+        }
+        return $usuarioEncontrado;
+    }
+
 }
 ?>

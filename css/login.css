@@ -110,9 +110,6 @@ div.datos input{
   font-size: 15px;
 }
 
-div.recordame{
-  margin: 90px 90px 0 0;
-}
 
 div.form-row{
   font-size: 20px;
@@ -144,9 +141,7 @@ div.datos button{
   height: 6vh;
 
 }
-div.recordame{
-  margin: 90px 90px 0 0;
-}
+
 
 div.datos p{
   margin-left: 30%;
