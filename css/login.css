@@ -1,7 +1,7 @@
 /* ZONA LOGIN */
 section.Login {
   background-color:whitesmoke;
-  height: 65vh;
+  height: 95vh;
   border-radius: 0px 0px 10px 10px;
 }
 
@@ -44,7 +44,6 @@ div.common ul li a{
 div.datos{
   width: 80%;
   margin: 0 auto;
-  background-color: rgba(245, 245, 245, 0.95);
   padding-top: 10px;
   border-radius: 0 0 10px 10px;
 }
@@ -87,7 +86,7 @@ section.cambiar_contrasena{
 margin: 5% auto;
 }
 */
-section.cambiar_contrasena a{
+label.cambiar_contrasena a{
   text-decoration: none;
   color:black;
   font-style: italic;
@@ -120,6 +119,13 @@ div.form-row{
   body{
     background-image: url(../img/background_home.png);
   }
+
+  section.Login {
+    background-color:whitesmoke;
+    height: 75vh;
+    border-radius: 0px 0px 10px 10px;
+  }
+  
 
 /*
   div.datos h3,

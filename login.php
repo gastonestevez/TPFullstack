@@ -56,8 +56,7 @@ if($validacion->esMethodPost()){
           <h4> ¡Qué bueno verte!</h4><br>
         </div>
         <form class="formlogin"  action="login.php" method="post" enctype="multipart/form-data">
-          <div class="form-row">
-
+          
             <p><?= $errors['coincidencia'][0] ?? '' ?></p>
                 <div class="form-group col-md-12">
                   <label for="usuario">Usuario</label>
@@ -82,11 +81,10 @@ if($validacion->esMethodPost()){
 
                 <button class="btn btn-dark d-block mx-auto mt-4" type="submit" name="login">Ingresar</button>
 
-                <section class="cambiar_contrasena mx-auto mt-4">
-                  <label for="cambiarPassword"><a href="cambiar_contrasena.php">¿Olvidaste tu contraseña?</a></label>
-                </section>
-
-          </div>
+               
+                  <label for="cambiarPassword" class="text-center d-block cambiar_contrasena mt-4">
+                    <a href="cambiar_contrasena.php">¿Olvidaste tu contraseña?</a></label>
+                
         </form>
     </div>
 </section>
