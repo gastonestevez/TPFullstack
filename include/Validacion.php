@@ -56,7 +56,6 @@ class Validacion {
             
             if ($usuario['usuario'] === $_POST['usuario'] && password_verify($_POST['password'],$usuario['password'])){
                 $usuarioEncontrado = $usuario['usuario'];
-                var_dump($usuarioEncontrado);
             }
         }
         return $usuarioEncontrado;

@@ -4,7 +4,9 @@ include 'include/head.php';
 include 'include/navegacion.php';
 require 'include/validacion.php';
 
-$_SESSION['usuario']=$_POST['usuario'];
+if(isset($_SESSION['usuario']))
+  $_SESSION['usuario']=$_POST['usuario'];
+
 $validacion = new Validacion();
 $errors=[];
 $usuario ='';
@@ -40,8 +42,8 @@ if($validacion->esMethodPost()){
 
 
 <body>
-<section class="Login" id="Seccionlogin">
-     <div class="common">
+<section class="col-lg-10 col-xl-6 mx-auto Login" id="Seccionlogin">
+     <div class="col-lg-12 mx-auto common">
        <ul>
          <li class="cliente"><a href="login.php">¿Ya eres cliente?</a></li>
          <li class="nuevo"><a href="registro.php">¿Nuevo en BIGFASHION?</a></li>
@@ -50,27 +52,27 @@ if($validacion->esMethodPost()){
 
       <div class="datos">
         <div class="titulos">
-          <h3>Mi cuenta en  <strong>BIGFASHION</strong></h3>
+          <h3>Mi cuenta en <strong>BIGFASHION</strong></h3>
           <h4> ¡Qué bueno verte!</h4><br>
         </div>
         <form class="formlogin"  action="login.php" method="post" enctype="multipart/form-data">
           <div class="form-row">
 
             <p><?= $errors['coincidencia'][0] ?? '' ?></p>
-                <div class="form-group col-md-8">
+                <div class="form-group col-md-12">
                   <label for="usuario">Usuario</label>
                   <input id="usuario" type="text" value="<?= $usuario?>"  class="form-control" name="usuario" placeholder="Ingresa tu usuario">
                   <p><?= $errors['usuario'][0] ?? '' ?></p>
                 </div>
 
-                <div class="form-group col-md-8">
+                <div class="form-group col-md-12">
                   <label for="password">Contraseña</label>
                   <input id="password" class="form-control" type="password" name="password"value="<?= $password?>"
                   placeholder="Ingresa tu contraseña">
                   <p><?= $errors['password'][0] ?? '' ?></p>
                 </div>
 
-                <div class="form-check">
+                <div class="form-check col-md-12">
                     <label for="recordame" class="form-check-label">
                     <input type="checkbox" class="form-check-input" name="RECORDAME">
                     Recordame
@@ -78,9 +80,9 @@ if($validacion->esMethodPost()){
                 </div>
                 <p><?= $errors['sin_usuario'] ?? '' ?></p>
 
-                <button class="btn btn-dark d-block mx-auto mt-4 " type="submit" name="login">Ingresar</button>
+                <button class="btn btn-dark d-block mx-auto mt-4" type="submit" name="login">Ingresar</button>
 
-                <section class="cambiar_contrasena col-md-8 mx-auto">
+                <section class="cambiar_contrasena mx-auto mt-4">
                   <label for="cambiarPassword"><a href="cambiar_contrasena.php">¿Olvidaste tu contraseña?</a></label>
                 </section>
 

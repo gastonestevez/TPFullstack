@@ -1,13 +1,14 @@
 /* ZONA LOGIN */
 section.Login {
   background-color:whitesmoke;
-  height: 95vh;
+  height: 65vh;
+  border-radius: 0px 0px 10px 10px;
 }
 
 div.common ul{
   display: flex;
   flex-wrap: wrap;
-  padding-top: 50px;
+  padding-top: 20px;
   text-align: center;
   text-transform: uppercase;
   justify-content: center;
@@ -80,10 +81,12 @@ div.datos p{
   font-style: italic;
 }
 
+/*
 section.cambiar_contrasena{
   display: block;
-  margin: 5% auto;
+margin: 5% auto;
 }
+*/
 section.cambiar_contrasena a{
   text-decoration: none;
   color:black;
@@ -91,59 +94,61 @@ section.cambiar_contrasena a{
 }
 
 @media only screen and (min-device-width:768px) and (max-device-width:1024px){
-div.common ul li a{
-  font-size: 25px;
-  color: black;
-}
 
-div.common ul li{
-  padding: 1% 5%;
-}
-
-div.datos label{
-  margin-left: 2%;
-}
-
-div.datos input{
-  margin-left: 2%;
-  width: 150%;
-  font-size: 15px;
-}
-
+  div.common ul li a{
+    font-size: 18px;
+    color: black;
+  }
+  
+  div.common ul li{
+    padding: 1% 5%;
+  }
+  /*
+  div.datos input{
+    margin-left: 2%;
+    width: 150%;
+    font-size: 15px;
+  }
 
 div.form-row{
   font-size: 20px;
 }
+*/
 }
 
 @media only screen and (min-device-width:1024px){
-div.datos h3,
-div.datos h4{
-  margin-right: 20%;
-}
+  body{
+    background-image: url(../img/background_home.png);
+  }
 
-div.common ul li{
-  padding: 1% 8%;
-}
-
-div.datos label{
-  margin-left: 30%;
-}
-
-div.datos input{
-  margin-left: 30%;
-  width: 90%;
-  font-size: 15px;
-}
-
-div.datos button{
-  width: 50%;
-  height: 6vh;
-
-}
-
-
-div.datos p{
-  margin-left: 30%;
-}
+/*
+  div.datos h3,
+  div.datos h4{
+    margin-right: 20%;
+  }
+  
+  div.common ul li{
+    padding: 1% 8%;
+  }
+  
+  
+  div.datos button{
+    width: 50%;
+    height: 6vh;
+  }
+  
+  
+  div.datos p{
+    margin-left: 30%;
+  }
+  
+  div.datos input{
+    margin-left: 30%;
+    width: 90%;
+    font-size: 15px;
+  }
+        div.datos label{
+          margin-left: 30%;
+        }
+  */
 }
