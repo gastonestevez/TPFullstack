@@ -4,6 +4,7 @@ include 'include/head.php';
 include 'include/navegacion.php';
 require 'include/validacion.php';
 
+$_SESSION['usuario']=$_POST['usuario'];
 $validacion = new Validacion();
 $errors=[];
 $usuario ='';
@@ -18,7 +19,7 @@ if($validacion->esMethodPost()){
   }else if($validacion->estaVacioUsuario()){
       $errors['usuario'][]= 'El usuario es requerido';
   }
-  
+
   if(!$validacion->esPassword()){
       $errors['password'][]= 'Ingrese su contraseña';
   }else if(!$validacion->validaAnchoDePassword(5,13)){
@@ -26,7 +27,7 @@ if($validacion->esMethodPost()){
   }
 
   $usuarioEncontrado = $validacion->obtenerUsuarioIngresado();
-  
+
   if ($usuarioEncontrado!=null && empty($errors)){
     $_SESSION['usuario'] = $usuarioEncontrado;
     header('location:index.php');
@@ -76,13 +77,13 @@ if($validacion->esMethodPost()){
                   </label>
                 </div>
                 <p><?= $errors['sin_usuario'] ?? '' ?></p>
-                
+
                 <button class="btn btn-dark d-block mx-auto mt-4 " type="submit" name="login">Ingresar</button>
-                
+
                 <section class="cambiar_contrasena col-md-8 mx-auto">
-                  <label for="cambiarPassword"><a href="cambiar_contrasena.php">¿Olvidaste tu contraseña?</a></label> 
+                  <label for="cambiarPassword"><a href="cambiar_contrasena.php">¿Olvidaste tu contraseña?</a></label>
                 </section>
-                
+
           </div>
         </form>
     </div>

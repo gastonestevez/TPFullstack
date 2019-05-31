@@ -108,5 +108,15 @@
         "password": "$2y$10$Qzi8tYsIMy\/PyTdtiFcx\/e0xn14JSxnx.HkIQjiHNCSMfazHmVtxy",
         "provincia": "Buenos Aires",
         "avatar": "media\/a519885be31e979072a330510ecca105.png"
+    },
+    {
+        "nombre": "andrea",
+        "apellido": "kili",
+        "usuario": "asasas",
+        "email": "hudi@gmail.com",
+        "nacimiento": "2019-05-24",
+        "password": "$2y$10$LK36bCcRFmeesbUqLsJaTu2UFH9y6o14spTxnF98WdiNXv4jfXmJW",
+        "provincia": "La Pampa",
+        "avatar": "media\/c495756554fc225bc9fbaa28a88fa156.pdf"
     }
 ]
