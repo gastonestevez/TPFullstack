@@ -80,7 +80,6 @@ if($validacion->esMethodPost()){
                 <p><?= $errors['sin_usuario'] ?? '' ?></p>
 
                 <button class="btn btn-dark d-block mx-auto mt-4" type="submit" name="login">Ingresar</button>
-
                
                   <label for="cambiarPassword" class="text-center d-block cambiar_contrasena mt-4">
                     <a href="cambiar_contrasena.php">¿Olvidaste tu contraseña?</a></label>

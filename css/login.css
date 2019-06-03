@@ -93,6 +93,11 @@ label.cambiar_contrasena a{
 }
 
 @media only screen and (min-device-width:768px) and (max-device-width:1024px){
+  section.Login {
+    background-color:whitesmoke;
+    height: 105vh;
+    border-radius: 0px 0px 10px 10px;
+  }
 
   div.common ul li a{
     font-size: 18px;
@@ -122,7 +127,7 @@ div.form-row{
 
   section.Login {
     background-color:whitesmoke;
-    height: 75vh;
+    height: 85vh;
     border-radius: 0px 0px 10px 10px;
   }
   
