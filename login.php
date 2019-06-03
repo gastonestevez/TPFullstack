@@ -24,8 +24,6 @@ if($validacion->esMethodPost()){
 
   if(!$validacion->esPassword()){
       $errors['password'][]= 'Ingrese su contraseña';
-  }else if(!$validacion->validaAnchoDePassword(5,13)){
-    $errors['password'][]= 'La contraseña debe tener entre 6 y 12 caracteres';
   }
 
   $usuarioEncontrado = $validacion->obtenerUsuarioIngresado();
@@ -34,7 +32,7 @@ if($validacion->esMethodPost()){
     $_SESSION['usuario'] = $usuarioEncontrado;
     header('location:index.php');
   }else if($usuarioEncontrado==null){
-    $errors['sin_usuario'] = 'El usuario no se encuentra registrado';
+    $errors['sin_usuario'] = 'Usuario o contraseña, inválidos.';
   }
 }
 

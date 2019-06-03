@@ -9,12 +9,11 @@
    label{
      font-weight: bold;
    }
-   header .carrito-nav{
+ .carrito-nav{
      color: #555555;
      margin: 0px 10px 0px 10px;
    }
-   
-   header nav a .brand{
+ nav a .brand{
      font-family: 'Lobster', cursive;
      font-size: 1.5em;
    }

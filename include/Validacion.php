@@ -4,7 +4,7 @@ class Validacion {
      * Constructor
      * Pre, Post: 
      */
-    function Validacion(){
+    function __constructor(){
 
     }
 
