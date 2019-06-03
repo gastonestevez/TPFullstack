@@ -32,8 +32,13 @@
               <a class="dropdown-item" href="#">Cinturones</a>
             </div>
             </li>
-            <li class="nav-item1"><a class="nav-link" href="login.php"><i class="fas fa-sign-in-alt carrito-nav"></i>Login</a></li>
-            <li class="nav-item2"><a href="registro.php" class="nav-link carrito-nav"><strong>+</strong> Registrarse</a></li>
+              <?php
+                if(!empty($_SESSION) && !empty($_SESSION['usuario'])){
+                  echo '<li class="nav-item1"><a class="nav-link" href="logout.php"><i class="fas fa-sign-in-alt carrito-nav"></i>Logout</a></li><span class="navbar-text"><b> - Bienvenido</b> ' . $_SESSION['usuario'].'</span>';
+                }else{
+                  echo '<li class="nav-item1"><a class="nav-link" href="login.php"><i class="fas fa-sign-in-alt carrito-nav"></i>Login</a></li>';
+                }
+              ?>
         </ul>
       </div>
   </nav>

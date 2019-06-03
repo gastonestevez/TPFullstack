@@ -4,9 +4,6 @@ include 'include/head.php';
 include 'include/navegacion.php';
 require 'include/validacion.php';
 
-if(isset($_SESSION['usuario']))
-  $_SESSION['usuario']=$_POST['usuario'];
-
 $validacion = new Validacion();
 $errors=[];
 $usuario ='';
@@ -30,14 +27,13 @@ if($validacion->esMethodPost()){
 
   if ($usuarioEncontrado!=null && empty($errors)){
     $_SESSION['usuario'] = $usuarioEncontrado;
-    header('location:index.php');
+    Header('location: index.php');
   }else if($usuarioEncontrado==null){
     $errors['sin_usuario'] = 'Usuario o contraseña, inválidos.';
   }
 }
 
 ?>
-
 
 <body>
 <section class="col-lg-10 col-xl-6 mx-auto Login" id="Seccionlogin">

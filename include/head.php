@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <head>
     <meta charset="utf-8">
     <!-- Icons -->
@@ -20,4 +23,4 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
     <title>BIG FASHION</title>
-  </head>
+</head>

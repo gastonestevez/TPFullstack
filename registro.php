@@ -1,4 +1,6 @@
 <?php
+include 'include/head.php';
+include 'include/navegacion.php';
 $errors = [];
 $nombre = '';
 $user = '';
@@ -7,7 +9,6 @@ $email = '';
 $nacimiento = '';
 $pass1 = '';
 $pass2 = '';
-
 
 if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST)){
   $nombre = $_POST['nombre'];
@@ -103,16 +104,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST)){
         $usuariosDecoded[] = $usuario;
         $jsonFinal = json_encode($usuariosDecoded, JSON_PRETTY_PRINT);
         file_put_contents($archivo,$jsonFinal);
-        header('location:homesession.php');
+        header('location:index.php');
 
     }
 }
 ?>
-
-<?php include 'include/head.php'?>
 <body>
-<?php include 'include/navegacion.php'?>
-
  <section class="general" id="Seccionregistrarse">
    <div class="commonr">
      <ul>
