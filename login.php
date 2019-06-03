@@ -15,11 +15,11 @@ if($validacion->esMethodPost()){
 
   if(!$validacion->esUsuario()){
     $errors['usuario'][]= 'Ingresa su nombre de usuario';
-  }else if($validacion->estaVacioUsuario()){
+  }else if($validacion->estaVacioElCampo('usuario')){
       $errors['usuario'][]= 'El usuario es requerido';
   }
 
-  if(!$validacion->esPassword()){
+  if(!$validacion->existePosicion('password')){
       $errors['password'][]= 'Ingrese su contraseña';
   }
 

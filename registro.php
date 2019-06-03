@@ -1,6 +1,8 @@
 <?php
 include 'include/head.php';
 include 'include/navegacion.php';
+require 'include/Validacion.php';
+require 'include/Usuario.php';
 $errors = [];
 $nombre = '';
 $user = '';
@@ -9,8 +11,9 @@ $email = '';
 $nacimiento = '';
 $pass1 = '';
 $pass2 = '';
+$val = new Validacion();
 
-if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST)){
+if($val->esMethodPost()){
   $nombre = $_POST['nombre'];
   $apellido = $_POST['apellido'];
   $user = $_POST['usuario'];
@@ -19,66 +22,68 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST)){
   $provincia = $_POST['provincia'];
   $pass1 = $_POST['pass'];
   $pass2 = $_POST['passconf'];
+  $avatar = $_FILES['avatar'];
 
-      if(!isset($_POST['email'])){
+      if(!$val->existePosicion('email')){
         $errors['email'][]= 'Falta el campo email';
       }else{
-        if(empty($_POST['email'])){
-          $errors['email'][]= 'El email es requerido';
+        if($val->estaVacioElCampo('email')){
+          $errors['email'][]= 'El email es requerido ';
         }
-        if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
+        if(!$val->esCampoDeEmailValido()){
           $errors['email'][]= 'El email no es valido';
           }
       }
 
-      if(!isset($_POST['nombre'])){
+      if(!$val->existePosicion('nombre')){
         $errors['nombre'][]= 'Falta el campo nombre';
-      }else if(empty($_POST['nombre'])){
+      }else if($val->estaVacioElCampo('nombre')){
           $errors['nombre'][]= 'El nombre es requerido';
       }
 
-      if(!isset($_POST['apellido'])){
+      if(!$val->existePosicion('apellido')){
         $errors['apellido'][]= 'Falta el campo apellido';
-      }else if(empty($_POST['apellido'])){
+      }else if($val->estaVacioElCampo('apellido')){
           $errors['apellido'][]= 'El apellido es requerido';
       }
 
-      if(!isset($_POST['usuario'])){
+      if(!$val->existePosicion('usuario')){
         $errors['usuario'][]= 'Falta el campo nombre';
-      }else if(empty($_POST['usuario'])){
+      }else if($val->estaVacioElCampo('user')){
           $errors['usuario'][]= 'El usuario es requerido';
-      }else if(strlen($_POST['usuario'])<5 || $_POST['usuario']>12){
+      }else if($val->validaAncho(5,12,$user)){
           $errors['usuario'][]= 'El usuario debe tener entre 6 y 12 caracteres';
-        }
+      }
 
-      if(!isset($_POST['fechanacimiento'])){
+      if(!$val->existePosicion('fechanacimiento')){
           $errors['fechanacimiento'][]= 'Falta el campo fecha';
-        }else if(empty($_POST['fechanacimiento'])){
+        }else if($val->estaVacioElCampo('fechanacimiento')){
             $errors['fechanacimiento'][]= 'Ingrese una fecha';
       }
 
-      if(!isset($_POST['pass']) || !isset($_POST['passconf'])){
+      if(!$val->existePosicion('pass') || !$val->existePosicion('passconf')){
         $errors['password'][]= 'Falta el campo password';
-      }else if($_POST['pass'] != $_POST['passconf']){
+      }else if(!$val->validarIgualdadEntreCampos($pass1,$pass2)){
           $errors['password'][]= 'Las contraseñas no coinciden';
-      }else if(strlen($_POST['pass'])<5){
+      }else if(!$val->validaAncho(5,13,$pass1)){
           $errors['password'][]= 'El password debe tener entre 6 y 12 caracteres';
       }
 
-      if(isset($_POST['provincia'])){
-        if ($_POST['provincia'] == 'seleccion'){
+      if($val->existePosicion('provincia')){
+        if ($provincia == 'seleccion'){
           $errors['provincia'][]= 'Debes seleccionar una opcion';
       }
         }
 
-      if(!isset($_FILES['avatar'])){
+      if(!$val->existePosicionFile('avatar')){
         $errors['avatar'][]= 'Debe cargar un avatar';
-      }else if(empty($_FILES['avatar'])){
+      }else if($val->estaVacioElCampo('avatar')){
           $errors['avatar'][]= 'El avatar es requerido';
       }
-      if(!isset($_POST['terminos'])){
+      if(!$val->existePosicion('terminos')){
         $errors['terminos'][]='Debe aceptar los terminos y condiciones para pode continuar';
       }
+
     if(empty($errors)){
       $archivo = $_FILES['avatar']['tmp_name'];
       $nombreArchivo = $_FILES['avatar']['name'];
@@ -105,7 +110,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST)){
         $jsonFinal = json_encode($usuariosDecoded, JSON_PRETTY_PRINT);
         file_put_contents($archivo,$jsonFinal);
         header('location:index.php');
-
     }
 }
 ?>
