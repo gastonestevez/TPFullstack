@@ -32,11 +32,8 @@
               <a class="dropdown-item" href="#">Cinturones</a>
             </div>
             </li>
-          <li class="nav-item1">
-            <a class="nav-link" href="login.php"><i class="fas fa-sign-in-alt carrito-nav"></i>Login</a>
-          </li>
-          <li class="nav-item2"><a href="#" class="nav-link"><i class="fas fa-user-plus carrito-nav"></i>Registrarse</a>
-          </li>
+            <li class="nav-item1"><a class="nav-link" href="login.php"><i class="fas fa-sign-in-alt carrito-nav"></i>Login</a></li>
+            <li class="nav-item2"><a href="registro.php" class="nav-link carrito-nav"><strong>+</strong> Registrarse</a></li>
         </ul>
       </div>
   </nav>
