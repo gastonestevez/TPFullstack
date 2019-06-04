@@ -16,14 +16,16 @@ class Validacion {
         $this->setUsuario('');
         $this->setPassword('');
     }
-
+    /**
+     * Post: Procesa validacion de login.
+     */
     public function procesarLogin(){
         if($this->esMethodPost()){
             $this->setUsuario($this->getMetodo()['usuario']);
             $this->setPassword($this->getMetodo()['password']);
            if(!$this->existePosicion('usuario')){
             $this->addError('usuario','Ingresa su nombre de usuario');
-           }else if($this->estaVacioUsuario()){
+           }else if($this->estaVacioElCampo('usuario')){
             $this->addError('usuario','El usuario es requerido');
            }
          
@@ -43,7 +45,14 @@ class Validacion {
            }
          }
     }
-
+    
+    /**
+     * Pre: Requiere Posicion y mensaje.
+     * Post: Agrega un error al array.
+     */
+    protected function addError($pos,$msj){
+        $this->errors[$pos][] = $msj;
+    }
     /**
      * Post: Devuelve si el Pedido fue hecho por Post
      */
@@ -58,6 +67,9 @@ class Validacion {
         return isset($_POST[$posicion]);
     }
     
+    /**
+     * Post: Devuelve si hay un archivo
+     */
     protected function existePosicionFile($posicion){
         return isset($_FILES[$posicion]);
     }
@@ -86,6 +98,9 @@ class Validacion {
           return $campo1 == $campo2;
       }
 
+    /**
+     * Post: Devuelve si es valido el email ingresado.
+     */
     protected function esCampoDeEmailValido(){
         return filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
     }
@@ -104,7 +119,9 @@ class Validacion {
             }
         }
         return $usuarioEncontrado;
-    }
+    } //TODO <-- cambiar $_POST por getMethod
+
+    // Getters & Setters :)
 
     /**
      * Get the value of method
