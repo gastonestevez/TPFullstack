@@ -1,5 +1,5 @@
 <?php
-class Usuario{
+class Usuario implements JsonSerializable{
 
     // Atributos
 
@@ -9,6 +9,7 @@ class Usuario{
     private $email;
     private $nacimiento;
     private $password;
+    private $provincia;
     private $avatar;
     
     /**
@@ -17,14 +18,29 @@ class Usuario{
      * provincia y avatar del usuario
      * Post: Construye un usuario nuevo.
      */
-    public function __constructor($nombre,$apellido,$usuario,$email,$nacimiento,$password,$avatar){
-        setNombre($nombre);
-        setApellido($apellido);
-        setUsuario($usuario);
-        setEmail($email);
-        setNacimiento($nacimiento);
-        setPassword($password);
-        setAvatar($avatar);
+    public function __construct($nombre,$apellido,$usuario,$email,$nacimiento,$password,$prov){
+        $this->setNombre($nombre);
+        $this->setApellido($apellido);
+        $this->setUsuario($usuario);
+        $this->setEmail($email);
+        $this->setNacimiento($nacimiento);
+        $this->setPassword($password);
+        $this->setProvincia($prov);
+    }
+
+    public function jsonSerialize(){
+        return [
+            'usuario' => [
+                'nombre' => $this->getNombre(),
+                'apellido' => $this->getApellido(),
+                'usuario' => $this->getUsuario(),
+                'email' => $this->getEmail(),
+                'nacimiento' => $this->getNacimiento(),
+                'password' => $this->getPassword(),
+                'provincia' => $this->getProvincia(),
+                'avatar' => $this->getAvatar(),
+            ]
+        ];
     }
     
     /**
@@ -163,6 +179,26 @@ class Usuario{
     public function setAvatar($avatar)
     {
         $this->avatar = $avatar;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of provincia
+     */ 
+    public function getProvincia()
+    {
+        return $this->provincia;
+    }
+
+    /**
+     * Set the value of provincia
+     *
+     * @return  self
+     */ 
+    public function setProvincia($provincia)
+    {
+        $this->provincia = $provincia;
 
         return $this;
     }

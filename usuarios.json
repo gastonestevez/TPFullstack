@@ -1,122 +1,14 @@
 [
     {
-        "nombre": "mili",
-        "apellido": "kili",
-        "usuario": "ananana",
-        "email": "bigfashionba@gmail.com",
-        "nacimiento": "2019-05-25",
-        "password": "$2y$10$E97OX1xhvNc7wxZDuRpQ6uHF9JvZM7r1B90erwgVwH149zN9Bi276",
-        "provincia": "Jujuy",
-        "avatar": "media\/9a1f64601b53c62dd8ed54a622f1ac28.jpg"
-    },
-    {
-        "nombre": "mili",
-        "apellido": "kili",
-        "usuario": "ananana",
-        "email": "bigfashionba@gmail.com",
-        "nacimiento": "2019-05-25",
-        "password": "$2y$10$fdaIPXzLOYfnAlUp\/F5I\/ehmSdF3.LUTt.m11.yEAHjaMmssTnI8q",
-        "provincia": "Chaco",
-        "avatar": "media\/4156f13cd581fcf5430e87cbbff346ed.jpg"
-    },
-    {
-        "nombre": "mili",
-        "apellido": "kili",
-        "usuario": "ananana",
-        "email": "bigfashionba@gmail.com",
-        "nacimiento": "2019-05-25",
-        "password": "$2y$10$ZEik696Jm5\/ToPOdebWNouIWhwY8SPjhih1sPAQZewBzAg879XcDO",
-        "provincia": "Chaco",
-        "avatar": "media\/4156f13cd581fcf5430e87cbbff346ed.jpg"
-    },
-    {
-        "nombre": "as",
-        "apellido": "kili",
-        "usuario": "lolola",
-        "email": "hudi@gmail.com",
-        "nacimiento": "2019-05-10",
-        "password": "$2y$10$gcM\/e\/ZfFHmKbRPdWuJ62ubfTiS9QITQy5cjQGMn\/UOZew6I2uEAC",
-        "provincia": "La Rioja",
-        "avatar": "media\/d41d8cd98f00b204e9800998ecf8427e."
-    },
-    {
-        "nombre": "as",
-        "apellido": "kili",
-        "usuario": "lolola",
-        "email": "hudi@gmail.com",
-        "nacimiento": "2019-05-10",
-        "password": "$2y$10$VUJ16ORPlljhIMT3EDxdO.ed.qGhzFGnA.CFhJ5P.XowLBUz2BB5.",
-        "provincia": "La Pampa",
-        "avatar": "media\/d41d8cd98f00b204e9800998ecf8427e."
-    },
-    {
-        "nombre": "as",
-        "apellido": "kili",
-        "usuario": "lolola",
-        "email": "hudi@gmail.com",
-        "nacimiento": "2019-05-10",
-        "password": "$2y$10$ASMAXdGI5IUxArfBcVZnEuqPSmY9oUqtG7z0q66wvI.P\/uo9sA5NK",
-        "provincia": "La Pampa",
-        "avatar": "media\/d41d8cd98f00b204e9800998ecf8427e."
-    },
-    {
-        "nombre": "as",
-        "apellido": "kili",
-        "usuario": "lolola",
-        "email": "hudi@gmail.com",
-        "nacimiento": "2019-05-10",
-        "password": "$2y$10$6OhEZR8nPlOlz.E9GcU2ueD6yKmvsRndX93bFuq8DY4WPBaATSliC",
-        "provincia": "La Pampa",
-        "avatar": "media\/d41d8cd98f00b204e9800998ecf8427e."
-    },
-    {
-        "nombre": "as",
-        "apellido": "kili",
-        "usuario": "lolola",
-        "email": "hudi@gmail.com",
-        "nacimiento": "2019-05-10",
-        "password": "$2y$10$QcG5XgInb03yVgq\/n7tEFe0tgTur8to6Yon99xTPvOo.ILe9jmHSm",
-        "provincia": "La Pampa",
-        "avatar": "media\/d41d8cd98f00b204e9800998ecf8427e."
-    },
-    {
-        "nombre": "as",
-        "apellido": "kili",
-        "usuario": "asasas",
-        "email": "an@hotmail.com",
-        "nacimiento": "2019-05-17",
-        "password": "$2y$10$F6EbwSlnBvT8xz\/Ycmv2BuqJnQCC\/0SvN0RsSVx\/b3EPh\/HK0SJiS",
-        "provincia": "Jujuy",
-        "avatar": "media\/d41d8cd98f00b204e9800998ecf8427e."
-    },
-    {
-        "nombre": "Gaston",
-        "apellido": "Estevez",
-        "usuario": "gastonestevez",
-        "email": "gaston@gmail.com",
-        "nacimiento": "1989-12-12",
-        "password": "$2y$10$\/CeDHCCzoFxH5qlZEcfkGelBjvAvu8VWINPYHtb8W\/9rb2cxBo9Je",
-        "provincia": "Buenos Aires",
-        "avatar": "media\/a78a42e58e9e2163676f9441565e9cfa.JPG"
-    },
-    {
-        "nombre": "UsPrueba",
-        "apellido": "ApPrueba",
-        "usuario": "gaston",
-        "email": "gaston.estevez7@gmail.com",
-        "nacimiento": "1989-12-07",
-        "password": "$2y$10$Qzi8tYsIMy\/PyTdtiFcx\/e0xn14JSxnx.HkIQjiHNCSMfazHmVtxy",
-        "provincia": "Buenos Aires",
-        "avatar": "media\/a519885be31e979072a330510ecca105.png"
-    },
-    {
-        "nombre": "andrea",
-        "apellido": "kili",
-        "usuario": "asasas",
-        "email": "hudi@gmail.com",
-        "nacimiento": "2019-05-24",
-        "password": "$2y$10$LK36bCcRFmeesbUqLsJaTu2UFH9y6o14spTxnF98WdiNXv4jfXmJW",
-        "provincia": "La Pampa",
-        "avatar": "media\/c495756554fc225bc9fbaa28a88fa156.pdf"
+        "usuario": {
+            "nombre": "Gast\u00f3n",
+            "apellido": "Est\u00e9vez",
+            "usuario": "gaston",
+            "email": "gaston.estevez7@gmail.com",
+            "nacimiento": "2112-12-12",
+            "password": "$2y$10$DRgbjjK05kPu5EbXp\/OkeupOaBhThaTqNrR05DcaygRvS7Q0pIwQG",
+            "provincia": "Chaco",
+            "avatar": "media\/d3543f4688291ffa7356b10faab468ae.png"
+        }
     }
 ]

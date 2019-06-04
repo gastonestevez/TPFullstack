@@ -17,6 +17,101 @@ class Validacion {
         $this->setPassword('');
     }
     /**
+     * Post: Procesa validacion de registro.
+     */
+    public function procesarRegistro(){
+        if($this->esMethodPost()){
+            $nombre = $_POST['nombre'];
+            $apellido = $_POST['apellido'];
+            $user = $_POST['usuario'];
+            $email = $_POST['email'];
+            $nacimiento = $_POST['fechanacimiento'];
+            $provincia = $_POST['provincia'];
+            $pass1 = $_POST['pass'];
+            $pass2 = $_POST['passconf'];
+            $avatar = $_FILES['avatar'];
+            $nuevoUsuario = new Usuario($nombre,$apellido,$user,$email,$nacimiento,password_hash($_POST['pass'],PASSWORD_DEFAULT),$provincia);
+             
+            if(!$this->existePosicion('email')){
+                  $errors['email'][]= 'Falta el campo email';
+                }else{
+                  if($this->estaVacioElCampo('email')){
+                    $errors['email'][]= 'El email es requerido ';
+                  }
+                  if(!$this->esCampoDeEmailValido()){
+                    $errors['email'][]= 'El email no es valido';
+                    }
+                }
+          
+                if(!$this->existePosicion('nombre')){
+                  $errors['nombre'][]= 'Falta el campo nombre';
+                }else if($this->estaVacioElCampo('nombre')){
+                    $errors['nombre'][]= 'El nombre es requerido';
+                }
+          
+                if(!$this->existePosicion('apellido')){
+                  $errors['apellido'][]= 'Falta el campo apellido';
+                }else if($this->estaVacioElCampo('apellido')){
+                    $errors['apellido'][]= 'El apellido es requerido';
+                }
+          
+                if(!$this->existePosicion('usuario')){
+                  $errors['usuario'][]= 'Falta el campo nombre';
+                }else if($this->estaVacioElCampo('usuario')){
+                    $errors['usuario'][]= 'El usuario es requerido';
+                }else if(!$this->validaAncho(5,12,$user)){
+                    $errors['usuario'][]= 'El usuario debe tener entre 6 y 12 caracteres';
+                }
+          
+                if(!$this->existePosicion('fechanacimiento')){
+                    $errors['fechanacimiento'][]= 'Falta el campo fecha';
+                  }else if($this->estaVacioElCampo('fechanacimiento')){
+                      $errors['fechanacimiento'][]= 'Ingrese una fecha';
+                }
+          
+                if(!$this->existePosicion('pass') || !$this->existePosicion('passconf')){
+                  $errors['password'][]= 'Falta el campo password';
+                }else if(!$this->validarIgualdadEntreCampos($pass1,$pass2)){
+                    $errors['password'][]= 'Las contraseñas no coinciden';
+                }else if(!$this->validaAncho(5,13,$pass1)){
+                    $errors['password'][]= 'El password debe tener entre 6 y 12 caracteres';
+                }
+          
+                if($this->existePosicion('provincia')){
+                  if ($provincia == 'seleccion'){
+                    $errors['provincia'][]= 'Debes seleccionar una opcion';
+                }
+                  }
+          
+                if(!$this->existePosicionFile('avatar')){
+                  $errors['avatar'][]= 'Debe cargar un avatar';
+                }else if($this->estaVacioElArchivo('avatar')){
+                    $errors['avatar'][]= 'El avatar es requerido';
+                }
+                if(!$this->existePosicion('terminos')){
+                  $errors['terminos'][]='Debe aceptar los terminos y condiciones para pode continuar';
+                }
+              if(empty($errors)){
+                $archivo = $_FILES['avatar']['tmp_name'];
+                $nombreArchivo = $_FILES['avatar']['name'];
+                $extension = pathinfo($nombreArchivo,PATHINFO_EXTENSION);
+                $miArchivo = 'media/';
+                $miArchivo = $miArchivo . md5($nombreArchivo) . '.' . $extension;
+                move_uploaded_file($archivo,$miArchivo);
+                $nuevoUsuario->setAvatar($miArchivo);
+          
+                  $archivo = 'usuarios.json';
+          
+                  $usuarios = file_get_contents($archivo);
+                  $usuariosDecoded = json_decode($usuarios,true);
+                  $usuariosDecoded[] = $nuevoUsuario;
+                  $jsonFinal = json_encode($usuariosDecoded, JSON_PRETTY_PRINT);
+                  file_put_contents($archivo,$jsonFinal);
+                  header('location:index.php');
+              }
+          }
+    }
+    /**
      * Post: Procesa validacion de login.
      */
     public function procesarLogin(){
@@ -45,7 +140,7 @@ class Validacion {
            }
          }
     }
-    
+
     /**
      * Pre: Requiere Posicion y mensaje.
      * Post: Agrega un error al array.
@@ -81,6 +176,10 @@ class Validacion {
         return empty($_POST[$posicion]);
     }
 
+    protected function estaVacioElArchivo($posicion){
+        return empty($_FILES[$posicion]);
+    }
+
     /**
      * Pre: Se ingresa valor minimo y maximo.
      * Post: Valida que password este entre minimo y maximo.
@@ -113,8 +212,7 @@ class Validacion {
         $usuarios = json_decode ($data, true);
         $usuarioEncontrado = null;
         foreach ($usuarios as $usuario) {
-            
-            if ($usuario['usuario'] === $_POST['usuario'] && password_verify($_POST['password'],$usuario['password'])){
+            if ($usuario['usuario']['usuario'] === $_POST['usuario'] && password_verify($_POST['password'],$usuario['usuario']['password'])){
                 $usuarioEncontrado = $usuario['usuario'];
             }
         }
