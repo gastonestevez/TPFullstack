@@ -121,7 +121,7 @@ div.form-row{
 }
 
 @media only screen and (min-device-width:1024px){
-  body{
+  body.backLogin{
     background-image: url(../img/background_home.png);
   }
 

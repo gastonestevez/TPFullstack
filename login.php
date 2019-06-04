@@ -5,7 +5,7 @@ require 'include/validacion.php';
 $validacion = new Validacion($_POST);
 $validacion->procesarLogin();
 ?>
-<body>
+<body class="backLogin">
 <section class="col-lg-10 col-xl-6 mx-auto Login" id="Seccionlogin">
      <div class="col-lg-12 mx-auto common">
        <ul>
