@@ -10,5 +10,17 @@
             "provincia": "Chaco",
             "avatar": "media\/d3543f4688291ffa7356b10faab468ae.png"
         }
+    },
+    {
+        "usuario": {
+            "nombre": "gaston",
+            "apellido": "ajflakdsjf",
+            "usuario": "fldskjfa",
+            "email": "fjasdofija@fjlkdsajfa.com",
+            "nacimiento": "1211-02-12",
+            "password": "$2y$10$izy1F6j1MP5f1KbtkDuQAeWS.YqvKTAFsjfmWPauOP.cYpFxBkTQ.",
+            "provincia": "San Juan",
+            "avatar": "media\/d41d8cd98f00b204e9800998ecf8427e."
+        }
     }
 ]

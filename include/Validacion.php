@@ -31,67 +31,67 @@ class Validacion {
             $pass2 = $_POST['passconf'];
             $avatar = $_FILES['avatar'];
             $nuevoUsuario = new Usuario($nombre,$apellido,$user,$email,$nacimiento,password_hash($_POST['pass'],PASSWORD_DEFAULT),$provincia);
-             
+            $this->setUsuario($nuevoUsuario);
             if(!$this->existePosicion('email')){
-                  $errors['email'][]= 'Falta el campo email';
+                  $this->addError('email','Falta el campo email');
                 }else{
                   if($this->estaVacioElCampo('email')){
-                    $errors['email'][]= 'El email es requerido ';
+                    $this->addError('email','El email es requerido.');
                   }
                   if(!$this->esCampoDeEmailValido()){
-                    $errors['email'][]= 'El email no es valido';
+                    $this->addError('email','El email no es valido');
                     }
                 }
           
                 if(!$this->existePosicion('nombre')){
-                  $errors['nombre'][]= 'Falta el campo nombre';
+                    $this->addError('nombre','Falta el campo nombre');
                 }else if($this->estaVacioElCampo('nombre')){
-                    $errors['nombre'][]= 'El nombre es requerido';
+                    $this->addError('nombre','El nombre es requerido');
                 }
           
                 if(!$this->existePosicion('apellido')){
-                  $errors['apellido'][]= 'Falta el campo apellido';
+                    $this->addError('apellido','Falta el campo apellido');
                 }else if($this->estaVacioElCampo('apellido')){
-                    $errors['apellido'][]= 'El apellido es requerido';
+                    $this->addError('apellido','El apellido es requerido');
                 }
           
                 if(!$this->existePosicion('usuario')){
-                  $errors['usuario'][]= 'Falta el campo nombre';
+                    $this->addError('usuario','Falta el campo nombre');
                 }else if($this->estaVacioElCampo('usuario')){
-                    $errors['usuario'][]= 'El usuario es requerido';
+                    $this->addError('usuario','El usuario es requerido');
                 }else if(!$this->validaAncho(5,12,$user)){
-                    $errors['usuario'][]= 'El usuario debe tener entre 6 y 12 caracteres';
+                    $this->addError('usuario','El usuario debe tener entre 6 y 12 caracteres');
                 }
           
                 if(!$this->existePosicion('fechanacimiento')){
-                    $errors['fechanacimiento'][]= 'Falta el campo fecha';
+                    $this->addError('fechanacimiento','Falta el campo fecha');
                   }else if($this->estaVacioElCampo('fechanacimiento')){
-                      $errors['fechanacimiento'][]= 'Ingrese una fecha';
+                    $this->addError('fechanacimiento','Ingrese una fecha');
                 }
           
                 if(!$this->existePosicion('pass') || !$this->existePosicion('passconf')){
-                  $errors['password'][]= 'Falta el campo password';
+                    $this->addError('password','Falta el campo password');
                 }else if(!$this->validarIgualdadEntreCampos($pass1,$pass2)){
-                    $errors['password'][]= 'Las contraseñas no coinciden';
+                    $this->addError('password','Las contraseñas no coinciden');
                 }else if(!$this->validaAncho(5,13,$pass1)){
-                    $errors['password'][]= 'El password debe tener entre 6 y 12 caracteres';
+                    $this->addError('password', 'El password debe tener entre 6 y 12 caracteres');
                 }
           
                 if($this->existePosicion('provincia')){
                   if ($provincia == 'seleccion'){
-                    $errors['provincia'][]= 'Debes seleccionar una opcion';
+                    $this->addError('provincia','Debes seleccionar una opcion');
                 }
                   }
           
                 if(!$this->existePosicionFile('avatar')){
-                  $errors['avatar'][]= 'Debe cargar un avatar';
+                    $this->addError('avatar','Debe cargar un avatar');
                 }else if($this->estaVacioElArchivo('avatar')){
-                    $errors['avatar'][]= 'El avatar es requerido';
+                    $this->addError('avatar','El avatar es requerido');
                 }
                 if(!$this->existePosicion('terminos')){
-                  $errors['terminos'][]='Debe aceptar los terminos y condiciones para pode continuar';
+                    $this->addError('terminos','Debe aceptar los terminos y condiciones para pode continuar');
                 }
-              if(empty($errors)){
+              if(empty($this->getErrors())){
                 $archivo = $_FILES['avatar']['tmp_name'];
                 $nombreArchivo = $_FILES['avatar']['name'];
                 $extension = pathinfo($nombreArchivo,PATHINFO_EXTENSION);

@@ -27,7 +27,9 @@ class Usuario implements JsonSerializable{
         $this->setPassword($password);
         $this->setProvincia($prov);
     }
-
+    /**
+     * Post: Serializa el objeto para guardarlo en JSON.
+     */
     public function jsonSerialize(){
         return [
             'usuario' => [
