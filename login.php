@@ -1,40 +1,10 @@
 <?php
-
 include 'include/head.php';
 include 'include/navegacion.php';
 require 'include/validacion.php';
-
-$validacion = new Validacion();
-$errors=[];
-$usuario ='';
-$password ='';
-
-if($validacion->esMethodPost()){
-   $usuario = $_POST['usuario'];
-   $password = $_POST['password'];
-
-  if(!$validacion->esUsuario()){
-    $errors['usuario'][]= 'Ingresa su nombre de usuario';
-  }else if($validacion->estaVacioElCampo('usuario')){
-      $errors['usuario'][]= 'El usuario es requerido';
-  }
-
-  if(!$validacion->existePosicion('password')){
-      $errors['password'][]= 'Ingrese su contraseña';
-  }
-
-  $usuarioEncontrado = $validacion->obtenerUsuarioIngresado();
-
-  if ($usuarioEncontrado!=null && empty($errors)){
-    $_SESSION['usuario'] = $usuarioEncontrado;
-    Header('location: index.php');
-  }else if($usuarioEncontrado==null){
-    $errors['sin_usuario'] = 'Usuario o contraseña, inválidos.';
-  }
-}
-
+$validacion = new Validacion($_POST);
+$validacion->procesarLogin();
 ?>
-
 <body>
 <section class="col-lg-10 col-xl-6 mx-auto Login" id="Seccionlogin">
      <div class="col-lg-12 mx-auto common">
@@ -51,18 +21,18 @@ if($validacion->esMethodPost()){
         </div>
         <form class="formlogin"  action="login.php" method="post" enctype="multipart/form-data">
           
-            <p><?= $errors['coincidencia'][0] ?? '' ?></p>
+            <p><?= $validacion->getErrors()['coincidencia'][0] ?? '' ?></p>
                 <div class="form-group col-md-12">
                   <label for="usuario">Usuario</label>
-                  <input id="usuario" type="text" value="<?= $usuario?>"  class="form-control" name="usuario" placeholder="Ingresa tu usuario">
-                  <p><?= $errors['usuario'][0] ?? '' ?></p>
+                  <input id="usuario" type="text" value="<?= $validacion->getUsuario()?>"  class="form-control" name="usuario" placeholder="Ingresa tu usuario">
+                  <p><?= $validacion->getErrors()['usuario'][0] ?? '' ?></p>
                 </div>
 
                 <div class="form-group col-md-12">
                   <label for="password">Contraseña</label>
-                  <input id="password" class="form-control" type="password" name="password"value="<?= $password?>"
+                  <input id="password" class="form-control" type="password" name="password"value="<?= $validacion->getPassword() ?>"
                   placeholder="Ingresa tu contraseña">
-                  <p><?= $errors['password'][0] ?? '' ?></p>
+                  <p><?= $validacion->getErrors()['password'][0] ?? '' ?></p>
                 </div>
 
                 <div class="form-check col-md-12">
@@ -71,7 +41,7 @@ if($validacion->esMethodPost()){
                     Recordame
                   </label>
                 </div>
-                <p><?= $errors['sin_usuario'] ?? '' ?></p>
+                <p><?= $validacion->getErrors()['sin_usuario'][0] ?? '' ?></p>
 
                 <button class="btn btn-dark d-block mx-auto mt-4" type="submit" name="login">Ingresar</button>
                
