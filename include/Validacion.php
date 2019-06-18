@@ -1,10 +1,10 @@
 <?php
+require 'include/Usuario.php';
 class Validacion {
     
     private $metodo;
     private $errors = [];
     private $usuario;
-    private $password;
 
     /**
      * Constructor
@@ -13,13 +13,13 @@ class Validacion {
      */
     function __construct($arrayMetodo){
         $this->setMetodo($arrayMetodo);
-        $this->setUsuario('');
-        $this->setPassword('');
     }
+
     /**
      * Post: Procesa validacion de registro.
      */
     public function procesarRegistro(){
+        $nuevoUsuario = new Usuario('','','','','','','',);
         if($this->esMethodPost()){
             $nombre = $_POST['nombre'];
             $apellido = $_POST['apellido'];
@@ -31,7 +31,6 @@ class Validacion {
             $pass2 = $_POST['passconf'];
             $avatar = $_FILES['avatar'];
             $nuevoUsuario = new Usuario($nombre,$apellido,$user,$email,$nacimiento,password_hash($_POST['pass'],PASSWORD_DEFAULT),$provincia);
-            $this->setUsuario($nuevoUsuario);
             if(!$this->existePosicion('email')){
                   $this->addError('email','Falta el campo email');
                 }else{
@@ -110,14 +109,19 @@ class Validacion {
                   header('location:index.php');
               }
           }
+        $this->setUsuario($nuevoUsuario);
     }
+
     /**
      * Post: Procesa validacion de login.
      */
     public function procesarLogin(){
+        $nuevoUsuario = new Usuario('','','','','','','',);        
         if($this->esMethodPost()){
-            $this->setUsuario($this->getMetodo()['usuario']);
-            $this->setPassword($this->getMetodo()['password']);
+            $nombreUsuario = $_POST['usuario'];
+            $passUsuario = $_POST['password'];
+            $nuevoUsuario->setUsuario($nombreUsuario);
+            
            if(!$this->existePosicion('usuario')){
             $this->addError('usuario','Ingresa su nombre de usuario');
            }else if($this->estaVacioElCampo('usuario')){
@@ -126,7 +130,7 @@ class Validacion {
          
            if(!$this->existePosicion('password')){
             $this->addError('password','Ingrese su contraseña');
-           }else if(!$this->validaAncho(5,13,$this->getPassword())){
+           }else if(!$this->validaAncho(5,13,$passUsuario)){
             $this->addError('password','La contraseña debe tener entre 6 y 12 caracteres');
             }
          
@@ -139,6 +143,7 @@ class Validacion {
             $this->addError('sin_usuario','El usuario no se encuentra registrado');
            }
          }
+        $this->setUsuario($nuevoUsuario);
     }
 
     /**
@@ -217,7 +222,7 @@ class Validacion {
             }
         }
         return $usuarioEncontrado;
-    } //TODO <-- cambiar $_POST por getMethod
+    }
 
     // Getters & Setters :)
 
@@ -242,46 +247,6 @@ class Validacion {
     }
 
     /**
-     * Get the value of usuario
-     */ 
-    public function getUsuario()
-    {
-        return $this->usuario;
-    }
-
-    /**
-     * Set the value of usuario
-     *
-     * @return  self
-     */ 
-    protected function setUsuario($usuario)
-    {
-        $this->usuario = $usuario;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of password
-     */ 
-    public function getPassword()
-    {
-        return $this->password;
-    }
-
-    /**
-     * Set the value of password
-     *
-     * @return  self
-     */ 
-    protected function setPassword($password)
-    {
-        $this->password = $password;
-
-        return $this;
-    }
-
-    /**
      * Get the value of errors
      */ 
     public function getErrors()
@@ -297,6 +262,26 @@ class Validacion {
     protected function setErrors($errors)
     {
         $this->errors = $errors;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of usuario
+     */ 
+    public function getUsuario()
+    {
+        return $this->usuario;
+    }
+
+    /**
+     * Set the value of usuario
+     *
+     * @return  self
+     */ 
+    public function setUsuario($usuario)
+    {
+        $this->usuario = $usuario;
 
         return $this;
     }

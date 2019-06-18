@@ -24,14 +24,13 @@ $validacion->procesarLogin();
             <p><?= $validacion->getErrors()['coincidencia'][0] ?? '' ?></p>
                 <div class="form-group col-md-12">
                   <label for="usuario">Usuario</label>
-                  <input id="usuario" type="text" value="<?= $validacion->getUsuario()?>"  class="form-control" name="usuario" placeholder="Ingresa tu usuario">
+                  <input id="usuario" type="text" value="<?= $validacion->getUsuario()->getUsuario();?>"  class="form-control" name="usuario" placeholder="Ingresa tu usuario">
                   <p><?= $validacion->getErrors()['usuario'][0] ?? '' ?></p>
                 </div>
 
                 <div class="form-group col-md-12">
                   <label for="password">Contraseña</label>
-                  <input id="password" class="form-control" type="password" name="password"value="<?= $validacion->getPassword() ?>"
-                  placeholder="Ingresa tu contraseña">
+                  <input id="password" class="form-control" type="password" name="password" placeholder="Ingresa tu contraseña">
                   <p><?= $validacion->getErrors()['password'][0] ?? '' ?></p>
                 </div>
 

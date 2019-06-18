@@ -22,5 +22,17 @@
             "provincia": "San Juan",
             "avatar": "media\/d41d8cd98f00b204e9800998ecf8427e."
         }
+    },
+    {
+        "usuario": {
+            "nombre": "Gast\u00f3n",
+            "apellido": "Est\u00e9vez",
+            "usuario": "gaston177",
+            "email": "gaston.estevez7@gmail.com",
+            "nacimiento": "1922-02-12",
+            "password": "$2y$10$verwwYylRrUoRsH8wxC.iujE7pZRrwcMyZYi8T7RvquDJVRvbuQCG",
+            "provincia": "Rio Negro",
+            "avatar": "media\/d41d8cd98f00b204e9800998ecf8427e."
+        }
     }
 ]

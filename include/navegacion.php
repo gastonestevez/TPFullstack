@@ -36,7 +36,7 @@
                 if(!empty($_SESSION) && !empty($_SESSION['usuario'])){
                   echo '<li class="nav-item1"><a class="nav-link" href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li><span class="navbar-text"><b> - Bienvenido</b> ' . $_SESSION['usuario']['usuario'].'</span>';
                 }else{
-                  echo '<li class="nav-item1"><a class="nav-link" href="login.php"><i class="fas fa-sign-in-alt carrito-nav"></i>Login</a></li>';
+                  echo '<li class="nav-item1"><a class="nav-link" href="login.php"><i class="fas fa-sign-in-alt carrito-nav"></i>Login/Registro</a></li>';
                 }
               ?>
         </ul>
