@@ -1,9 +1,21 @@
 <?php
 include 'include/head.php';
 include 'include/navegacion.php';
-require 'include/validacion.php';
-$validacion = new Validacion($_POST);
-$validacion->procesarLogin();
+require 'include/ValidacionUsuario.php';
+require 'include/Usuario.php';
+$newUser = new Usuario;
+$valUsuario = new ValidacionUsuario;
+if( $_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST)){
+  $newUser->setUsuario($_POST['usuario'])
+          ->setPassword($_POST['password']);
+  $valUsuario->setUsuario($newUser);
+  $valUsuario->validarUsuario();
+}
+        
+//$validacion = new Validacion($_POST);
+//$validacion->procesarLogin();
+
+
 ?>
 <body class="backLogin">
 <section class="col-lg-10 col-xl-6 mx-auto Login" id="Seccionlogin">
@@ -21,17 +33,17 @@ $validacion->procesarLogin();
         </div>
         <form class="formlogin"  action="login.php" method="post" enctype="multipart/form-data">
           
-            <p><?= $validacion->getErrors()['coincidencia'][0] ?? '' ?></p>
+            <p><?= $valUsuario->getErrors()['coincidencia'][0] ?? '' ?></p>
                 <div class="form-group col-md-12">
                   <label for="usuario">Usuario</label>
-                  <input id="usuario" type="text" value="<?= $validacion->getUsuario()->getUsuario();?>"  class="form-control" name="usuario" placeholder="Ingresa tu usuario">
-                  <p><?= $validacion->getErrors()['usuario'][0] ?? '' ?></p>
+                  <input id="usuario" type="text" value="<?= $_POST['usuario'] ?? ''?>"  class="form-control" name="usuario" placeholder="Ingresa tu usuario">
+                  <p><?= $valUsuario->getErrors()['usuario'][0] ?? '' ?></p>
                 </div>
 
                 <div class="form-group col-md-12">
                   <label for="password">Contraseña</label>
                   <input id="password" class="form-control" type="password" name="password" placeholder="Ingresa tu contraseña">
-                  <p><?= $validacion->getErrors()['password'][0] ?? '' ?></p>
+                  <p><?= $valUsuario->getErrors()['password'][0] ?? '' ?></p>
                 </div>
 
                 <div class="form-check col-md-12">
@@ -40,7 +52,7 @@ $validacion->procesarLogin();
                     Recordame
                   </label>
                 </div>
-                <p><?= $validacion->getErrors()['sin_usuario'][0] ?? '' ?></p>
+                <p><?= $valUsuario->getErrors()['sin_usuario'][0] ?? '' ?></p>
 
                 <button class="btn btn-dark d-block mx-auto mt-4" type="submit" name="login">Ingresar</button>
                

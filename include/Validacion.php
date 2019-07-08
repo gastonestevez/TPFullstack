@@ -1,19 +1,20 @@
 <?php
-require 'include/Usuario.php';
-class Validacion {
+abstract class Validacion {
     
     private $metodo;
     private $errors = [];
     private $usuario;
 
-    /**
-     * Constructor
-     * Pre: Obtiene el $_POST, 
-     * Post: Crea objeto validacion 
-     */
+    /*
     function __construct($arrayMetodo){
-        $this->setMetodo($arrayMetodo);
-    }
+         $this->setMetodo($arrayMetodo);
+        }
+        */
+    /**
+     * Post: Valida el usuario ingresado al
+     * sistema.
+     */
+    public abstract function validarUsuario();
 
     /**
      * Post: Procesa validacion de registro.
@@ -116,11 +117,7 @@ class Validacion {
      * Post: Procesa validacion de login.
      */
     public function procesarLogin(){
-        $nuevoUsuario = new Usuario('','','','','','','',);        
         if($this->esMethodPost()){
-            $nombreUsuario = $_POST['usuario'];
-            $passUsuario = $_POST['password'];
-            $nuevoUsuario->setUsuario($nombreUsuario);
             
            if(!$this->existePosicion('usuario')){
             $this->addError('usuario','Ingresa su nombre de usuario');
@@ -178,7 +175,7 @@ class Validacion {
      * Post: Devuelve si el campo consultado esta vacio.
      */
     protected function estaVacioElCampo($posicion){
-        return empty($_POST[$posicion]);
+        return empty($this->getUsuario()->getUsuario());
     }
 
     protected function estaVacioElArchivo($posicion){
@@ -217,7 +214,7 @@ class Validacion {
         $usuarios = json_decode ($data, true);
         $usuarioEncontrado = null;
         foreach ($usuarios as $usuario) {
-            if ($usuario['usuario']['usuario'] === $_POST['usuario'] && password_verify($_POST['password'],$usuario['usuario']['password'])){
+            if ($usuario['usuario']['usuario'] === $this->getUsuario()->getUsuario() && password_verify($this->getUsuario()->getPassword(),$usuario['usuario']['password'])){
                 $usuarioEncontrado = $usuario['usuario'];
             }
         }

@@ -18,14 +18,7 @@ class Usuario implements JsonSerializable{
      * provincia y avatar del usuario
      * Post: Construye un usuario nuevo.
      */
-    public function __construct($nombre,$apellido,$usuario,$email,$nacimiento,$password,$prov){
-        $this->setNombre($nombre);
-        $this->setApellido($apellido);
-        $this->setUsuario($usuario);
-        $this->setEmail($email);
-        $this->setNacimiento($nacimiento);
-        $this->setPassword($password);
-        $this->setProvincia($prov);
+    public function __construct(){
     }
     /**
      * Post: Serializa el objeto para guardarlo en JSON.
