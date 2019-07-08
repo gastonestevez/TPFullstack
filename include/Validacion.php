@@ -17,11 +17,20 @@ abstract class Validacion {
     public abstract function validarUsuario();
 
     /**
+     * TO DO // @NAY.
      * Post: Procesa validacion de registro.
      */
     public function procesarRegistro(){
         $nuevoUsuario = new Usuario('','','','','','','',);
         if($this->esMethodPost()){
+            //todos estos campos deben estar en registro.php
+            /*
+            1. Crear un usuario que contenga todos
+            los campos de abajo
+            2. cambiar el existePosicion por getUsuario()->getNombre()
+            (segun que campo sea). corroborar que copie a json.
+            
+            */
             $nombre = $_POST['nombre'];
             $apellido = $_POST['apellido'];
             $user = $_POST['usuario'];
@@ -113,35 +122,7 @@ abstract class Validacion {
         $this->setUsuario($nuevoUsuario);
     }
 
-    /**
-     * Post: Procesa validacion de login.
-     */
-    public function procesarLogin(){
-        if($this->esMethodPost()){
-            
-           if(!$this->existePosicion('usuario')){
-            $this->addError('usuario','Ingresa su nombre de usuario');
-           }else if($this->estaVacioElCampo('usuario')){
-            $this->addError('usuario','El usuario es requerido');
-           }
-         
-           if(!$this->existePosicion('password')){
-            $this->addError('password','Ingrese su contraseña');
-           }else if(!$this->validaAncho(5,13,$passUsuario)){
-            $this->addError('password','La contraseña debe tener entre 6 y 12 caracteres');
-            }
-         
-           $usuarioEncontrado = $this->obtenerUsuarioIngresado();
-         
-           if ($usuarioEncontrado!=null && empty($errors)){
-             $_SESSION['usuario'] = $usuarioEncontrado;
-             header('Location: index.php');
-           }else if($usuarioEncontrado==null){
-            $this->addError('sin_usuario','El usuario no se encuentra registrado');
-           }
-         }
-        $this->setUsuario($nuevoUsuario);
-    }
+    
 
     /**
      * Pre: Requiere Posicion y mensaje.
