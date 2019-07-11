@@ -1,16 +1,37 @@
 <?php
 include 'include/head.php';
 include 'include/navegacion.php';
-require 'include/Validacion.php';
-$nombre = '';
-$user = '';
-$apellido = '';
-$email = '';
-$nacimiento = '';
-$pass1 = '';
-$pass2 = '';
-$validacion = new Validacion($_POST);
-$validacion->procesarRegistro();
+require 'include/Usuario.php';
+require 'src/config.php';
+require 'Factory.php';
+require 'include/ValidacionRegistro.php';
+
+$valRegistro = new ValidacionRegistro;
+
+if( $_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST)){
+  $user = new Usuario;
+  $user->setNombre($_POST['nombre'])
+      ->setApellido($_POST['apellido'])
+      ->setUsuario($_POST['usuario'])
+      ->setEmail($_POST['email'])
+      ->setNacimiento($_POST['nacimiento'])
+      ->setPassword($_POST['pass'])
+      ->setProvincia($_POST['provincia']);
+
+      $valRegistro->setUsuario($user);
+      $valRegistro->validarRegistro();
+
+
+
+  try {
+    $storage = Factory::get('storages', 'json');
+    $user->save($storage);
+
+    } catch (Exception $e) {
+      echo $e->getMessage();
+    }
+}
+
 ?>
 <body>
  <section class="general" id="Seccionregistrarse">
@@ -29,31 +50,32 @@ $validacion->procesarRegistro();
           <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="inputNombre">Nombre</label>
-                <input id="nombre" type="text" value="<?= $validacion->getUsuario()->getNombre()?>" class="form-control" name="nombre" placeholder="Ingresa tu nombre">
-                <p><?= $validacion->getErrors()['nombre'][0] ?? '' ?></p>
+                <input id="nombre" type="text" value="<?= $_POST['nombre'] ?? '' ?>" class="form-control" name="nombre" placeholder="Ingresa tu nombre">
+                <p><?= $valRegistro->getErrors()['nombre'][0] ?? '' ?></p>
+              </div>
               </div>
               <div class="form-group col-md-6">
                 <label for="inputApellido">Apellido</label>
-                <input id="apellido" type="text" value="<?= $validacion->getUsuario()->getApellido()?>" class="form-control" name="apellido" placeholder="Ingresa tu Apellido">
-                <p><?= $validacion->getErrors()['apellido'][0] ?? '' ?></p>
+                <input id="apellido" type="text" value="<?= $_POST['apellido'] ?? '' ?>" class="form-control" name="apellido" placeholder="Ingresa tu Apellido">
+                <p><?= $valRegistro->getErrors()['apellido'][0] ?? '' ?></p>
               </div>
           </div>
           <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="inputEmail">E-mail</label>
-                <input id="mail" type="text" value="<?= $validacion->getUsuario()->getEmail()?>" name="email" class="form-control" placeholder="Ingresa tu e-mail">
-                <p><?= $validacion->getErrors()['email'][0] ?? '' ?></p>
+                <input id="mail" type="text" value="<?= $_POST['email'] ?? '' ?>" name="email" class="form-control" placeholder="Ingresa tu e-mail">
+                <p><?= $valRegistro->getErrors()['email'][0] ?? '' ?></p>
               </div>
               <div class="form-group col-md-6">
                 <label for="inputUsuario">Usuario</label>
-                <input id="nombre" type="text" value="<?= $validacion->getUsuario()->getUsuario()?>" class="form-control" name="usuario" placeholder="Ingresa tu usuario" title="Debe ser mayor a 6 letras :)">
-                <p><?= $validacion->getErrors()['usuario'][0] ?? '' ?></p>
+                <input id="nombre" type="text" value="<?= $_POST['usuario'] ?? ''?>" class="form-control" name="usuario" placeholder="Ingresa tu usuario" title="Debe ser mayor a 6 letras :)">
+                <<p><?= $valRegistro->getErrors()['usuario'][0] ?? '' ?></p>
               </div>
           </div>
               <div class="form-group">
                 <label for="inputCumple">Fecha de nacimiento</label>
-                <input id="fechanacimiento" value="<?= $validacion->getUsuario()->getNacimiento()?>" type="date" name="fechanacimiento" class="form-control" >
-                <p><?= $validacion->getErrors()['fechanacimiento'][0] ?? '' ?></p>              
+                <input id="fechanacimiento" value="<?= $_POST['nacimiento'] ?? '' ?>" type="date" name="nacimiento" class="form-control" >
+                <p><?= $valRegistro->getErrors()['fechanacimiento'][0] ?? '' ?></p>
               </div>
               <div class="form-group">
               <label for="inputProvincia">Provincia</label>
@@ -84,19 +106,19 @@ $validacion->procesarRegistro();
                   <option value="Tucuman">Tucuman</option>
                </select>
               </div>
-              <p><?=$validacion->getErrors()['provincia'][0]?? '' ?> </p>
+              <p><?= $valRegistro->getErrors()['provincia'][0] ?? '' ?></p>
               <label for="avatarImagen">Carga tu avatar</label>
 
               <div class="custom-file">
                 <input class="custom-file-input" type="file" name="avatar" id="customFile">
                 <label class="custom-file-label" for="customFile"></label>
               </div>
-              <p><?= $validacion->getErrors()['avatar'][0] ?? '' ?></p>
+              <p><?= $valRegistro->getErrors()['avatar'][0] ?? '' ?></p>
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputPassword">Contraseña</label>
                   <input id="pass" class="form-control" type="password" name="pass" title="Debe ser entre 6 y 12 letras" value>
-                  <p><?=$validacion->getErrors()['password'][0] ?? '' ?></p>
+                  <p><?= $valRegistro->getErrors()['password'][0] ?? '' ?></p>
                 </div>
                 <div class="form-group col-md-6">
                   <label>Reingresa tu contraseña</label>
@@ -105,8 +127,8 @@ $validacion->procesarRegistro();
               </div>
               <div class="form-check">
                 <input type="checkbox" class="form-check-input" name="terminos">
-                <label for="novedades" class="form-check-label">Aceptas términos y condicoines de <strong>BIG FASHION</strong>? </label>
-                <p><?= $validacion->getErrors()['terminos'][0] ?? ''?></p>
+                <label for="novedades" class="form-check-label">Aceptas términos y condiciones de <strong>BIG FASHION</strong>? </label>
+              <p><?= $valRegistro->getErrors()['terminos'][0] ?? '' ?></p>
               </div>
                 <button class="btn btn-dark d-block mx-auto mt-4 " type="submit" name="resgistro">Registrarme</button>
         </form>
