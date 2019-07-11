@@ -1,10 +1,9 @@
 <?php
 abstract class Validacion {
-    
+
     private $metodo;
     private $errors = [];
     private $usuario;
-
     /*
     function __construct($arrayMetodo){
          $this->setMetodo($arrayMetodo);
@@ -14,120 +13,13 @@ abstract class Validacion {
      * Post: Valida el usuario ingresado al
      * sistema.
      */
-    public abstract function validarUsuario();
-
+    
     /**
      * TO DO // @NAY.
      * Post: Procesa validacion de registro.
      */
-    public function procesarRegistro(){
-        $nuevoUsuario = new Usuario('','','','','','','',);
-        if($this->esMethodPost()){
-            //todos estos campos deben estar en registro.php
-            /*
-            1. Crear un usuario que contenga todos
-            los campos de abajo
-            2. cambiar el existePosicion por getUsuario()->getNombre()
-            (segun que campo sea). corroborar que copie a json.
-            
-            */
-            $nombre = $_POST['nombre'];
-            $apellido = $_POST['apellido'];
-            $user = $_POST['usuario'];
-            $email = $_POST['email'];
-            $nacimiento = $_POST['fechanacimiento'];
-            $provincia = $_POST['provincia'];
-            $pass1 = $_POST['pass'];
-            $pass2 = $_POST['passconf'];
-            $avatar = $_FILES['avatar'];
-            $nuevoUsuario = new Usuario($nombre,$apellido,$user,$email,$nacimiento,password_hash($_POST['pass'],PASSWORD_DEFAULT),$provincia);
-            if(!$this->existePosicion('email')){
-                  $this->addError('email','Falta el campo email');
-                }else{
-                  if($this->estaVacioElCampo('email')){
-                    $this->addError('email','El email es requerido.');
-                  }
-                  if(!$this->esCampoDeEmailValido()){
-                    $this->addError('email','El email no es valido');
-                    }
-                }
-          
-                if(!$this->existePosicion('nombre')){
-                    $this->addError('nombre','Falta el campo nombre');
-                }else if($this->estaVacioElCampo('nombre')){
-                    $this->addError('nombre','El nombre es requerido');
-                }
-          
-                if(!$this->existePosicion('apellido')){
-                    $this->addError('apellido','Falta el campo apellido');
-                }else if($this->estaVacioElCampo('apellido')){
-                    $this->addError('apellido','El apellido es requerido');
-                }
-          
-                if(!$this->existePosicion('usuario')){
-                    $this->addError('usuario','Falta el campo nombre');
-                }else if($this->estaVacioElCampo('usuario')){
-                    $this->addError('usuario','El usuario es requerido');
-                }else if(!$this->validaAncho(5,12,$user)){
-                    $this->addError('usuario','El usuario debe tener entre 6 y 12 caracteres');
-                }
-          
-                if(!$this->existePosicion('fechanacimiento')){
-                    $this->addError('fechanacimiento','Falta el campo fecha');
-                  }else if($this->estaVacioElCampo('fechanacimiento')){
-                    $this->addError('fechanacimiento','Ingrese una fecha');
-                }
-          
-                if(!$this->existePosicion('pass') || !$this->existePosicion('passconf')){
-                    $this->addError('password','Falta el campo password');
-                }else if(!$this->validarIgualdadEntreCampos($pass1,$pass2)){
-                    $this->addError('password','Las contraseñas no coinciden');
-                }else if(!$this->validaAncho(5,13,$pass1)){
-                    $this->addError('password', 'El password debe tener entre 6 y 12 caracteres');
-                }
-          
-                if($this->existePosicion('provincia')){
-                  if ($provincia == 'seleccion'){
-                    $this->addError('provincia','Debes seleccionar una opcion');
-                }
-                  }
-          
-                if(!$this->existePosicionFile('avatar')){
-                    $this->addError('avatar','Debe cargar un avatar');
-                }else if($this->estaVacioElArchivo('avatar')){
-                    $this->addError('avatar','El avatar es requerido');
-                }
-                if(!$this->existePosicion('terminos')){
-                    $this->addError('terminos','Debe aceptar los terminos y condiciones para pode continuar');
-                }
-              if(empty($this->getErrors())){
-                $archivo = $_FILES['avatar']['tmp_name'];
-                $nombreArchivo = $_FILES['avatar']['name'];
-                $extension = pathinfo($nombreArchivo,PATHINFO_EXTENSION);
-                $miArchivo = 'media/';
-                $miArchivo = $miArchivo . md5($nombreArchivo) . '.' . $extension;
-                move_uploaded_file($archivo,$miArchivo);
-                $nuevoUsuario->setAvatar($miArchivo);
-          
-                  $archivo = 'usuarios.json';
-          
-                  $usuarios = file_get_contents($archivo);
-                  $usuariosDecoded = json_decode($usuarios,true);
-                  $usuariosDecoded[] = $nuevoUsuario;
-                  $jsonFinal = json_encode($usuariosDecoded, JSON_PRETTY_PRINT);
-                  file_put_contents($archivo,$jsonFinal);
-                  header('location:index.php');
-              }
-          }
-        $this->setUsuario($nuevoUsuario);
-    }
 
-    
 
-    /**
-     * Pre: Requiere Posicion y mensaje.
-     * Post: Agrega un error al array.
-     */
     protected function addError($pos,$msj){
         $this->errors[$pos][] = $msj;
     }
@@ -144,14 +36,14 @@ abstract class Validacion {
     protected function existePosicion($posicion){
         return isset($_POST[$posicion]);
     }
-    
+
     /**
      * Post: Devuelve si hay un archivo
      */
     protected function existePosicionFile($posicion){
         return isset($_FILES[$posicion]);
     }
-    
+
     /**
      * Post: Devuelve si el campo consultado esta vacio.
      */
@@ -171,7 +63,7 @@ abstract class Validacion {
         return (strlen($campo) > $minimo) &&
         (strlen($campo)<$maximo);
      }
- 
+
      /**
       * Pre: Se ingresan 2 campos para verificar igualdad.
       * Post: Devuelve si existe igualdad.
@@ -186,7 +78,7 @@ abstract class Validacion {
     protected function esCampoDeEmailValido(){
         return filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
     }
-    
+
     /**
      * Post: Obtiene usuario de Json, si no lo encuentra retorna null.
      */
@@ -206,7 +98,7 @@ abstract class Validacion {
 
     /**
      * Get the value of method
-     */ 
+     */
     protected function getMetodo()
     {
         return $this->metodo;
@@ -216,7 +108,7 @@ abstract class Validacion {
      * Set the value of method
      *
      * @return  self
-     */ 
+     */
     protected function setMetodo($metodo)
     {
         $this->metodo = $metodo;
@@ -226,7 +118,7 @@ abstract class Validacion {
 
     /**
      * Get the value of errors
-     */ 
+     */
     public function getErrors()
     {
         return $this->errors;
@@ -236,7 +128,7 @@ abstract class Validacion {
      * Set the value of errors
      *
      * @return  self
-     */ 
+     */
     protected function setErrors($errors)
     {
         $this->errors = $errors;
@@ -246,7 +138,7 @@ abstract class Validacion {
 
     /**
      * Get the value of usuario
-     */ 
+     */
     public function getUsuario()
     {
         return $this->usuario;
@@ -256,7 +148,7 @@ abstract class Validacion {
      * Set the value of usuario
      *
      * @return  self
-     */ 
+     */
     public function setUsuario($usuario)
     {
         $this->usuario = $usuario;
