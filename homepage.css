@@ -1,11 +1,29 @@
+
 .tarjetaPrincipal {
-  background-image: url(../img/black.jpg);
+
   background-size: cover;
-  height: 120vh;
 }
+
 .main-footer {
   display: none;
+  background-color: #b6b6b6;
+
 }
+
+.main-footer li{
+  margin-right: 30px;
+  background-color: white;
+}
+
+.carousel{
+  margin: 0 25%;
+
+}
+
+.carousel-control-prev{
+  margin:0 auto;
+}
+
 @media only screen and (min-device-width:768px) and (max-device-width:1024px){
   .main-footer {
     display: none;
@@ -15,22 +33,25 @@
 .main-footer {
   display: block;
   margin-top: 5vh;
-  background: rgb(250,250,250);
+  padding-top: 30px;
   height: 30vh;
   width: 100%;
 }
 .main-footer ul {
   overflow: hidden;
   display: inline-block;
-  padding-left: 170px;
+  padding-left: 22%;
+  padding-top: 50px;
 }
 .main-footer li {
   float: left;
-  border-right: 1px solid black;
+
   background: transparent;
   line-height: 6px;
 }
 .main-footer li:last-child{
   border-right: none;
 }
+
+
 }
