@@ -1,38 +1,22 @@
 [
     {
-        "usuario": {
-            "nombre": "Gast\u00f3n",
-            "apellido": "Est\u00e9vez",
-            "usuario": "gaston",
-            "email": "gaston.estevez7@gmail.com",
-            "nacimiento": "2112-12-12",
-            "password": "$2y$10$DRgbjjK05kPu5EbXp\/OkeupOaBhThaTqNrR05DcaygRvS7Q0pIwQG",
-            "provincia": "Chaco",
-            "avatar": "media\/d3543f4688291ffa7356b10faab468ae.png"
-        }
+        "nombre": "Andrea",
+        "apellido": "Bagdadi",
+        "usuario": "andre_bag",
+        "email": "andre@gmail.com",
+        "nacimiento": "1309-03-12",
+        "password": "$2y$10$rdz4jhVyNMuNcgpHjRcHrOnOBx3yEStBQVI9vZi3tEsANtaXbhk4C",
+        "provincia": "Misiones",
+        "avatar": "media\/d3543f4688291ffa7356b10faab468ae.png"
     },
     {
-        "usuario": {
-            "nombre": "gaston",
-            "apellido": "ajflakdsjf",
-            "usuario": "fldskjfa",
-            "email": "fjasdofija@fjlkdsajfa.com",
-            "nacimiento": "1211-02-12",
-            "password": "$2y$10$izy1F6j1MP5f1KbtkDuQAeWS.YqvKTAFsjfmWPauOP.cYpFxBkTQ.",
-            "provincia": "San Juan",
-            "avatar": "media\/d41d8cd98f00b204e9800998ecf8427e."
-        }
-    },
-    {
-        "usuario": {
-            "nombre": "Gast\u00f3n",
-            "apellido": "Est\u00e9vez",
-            "usuario": "gaston177",
-            "email": "gaston.estevez7@gmail.com",
-            "nacimiento": "1922-02-12",
-            "password": "$2y$10$verwwYylRrUoRsH8wxC.iujE7pZRrwcMyZYi8T7RvquDJVRvbuQCG",
-            "provincia": "Rio Negro",
-            "avatar": "media\/d41d8cd98f00b204e9800998ecf8427e."
-        }
+        "nombre": "Nayla",
+        "apellido": "Palacio",
+        "usuario": "naypalacio",
+        "email": "nay@gmail.com",
+        "nacimiento": "1213-03-12",
+        "password": "$2y$10$2ZW03razPfrBmQS4MZt3B.y1r9UIeOSefIVVXl\/w.qGqTxw9\/7qKu",
+        "provincia": "Chaco",
+        "avatar": "media\/bceac906d1ef87d2db4ccbf94fc4eb95.JPG"
     }
 ]

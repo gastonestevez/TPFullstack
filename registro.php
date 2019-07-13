@@ -16,20 +16,24 @@ if( $_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST)){
       ->setEmail($_POST['email'])
       ->setNacimiento($_POST['nacimiento'])
       ->setPassword($_POST['pass'])
-      ->setProvincia($_POST['provincia']);
+      ->setProvincia($_POST['provincia'])
+      ->setAvatar($_FILES['avatar']);
 
-      $valRegistro->setUsuario($user);
-      $valRegistro->validarRegistro();
+      $valRegistro->setUsuario($user)
+                  ->setPass2($_POST['passconf'])
+                  ->setAceptaTerminos(isset($_POST['terminos']));
+
+      if($valRegistro->validarRegistro()){
+        try {
+          $storage = Factory::get('storages', 'db');
+          $user->save($storage);
+          header('location:index.php');
+          } catch (Exception $e) {
+            echo $e->getMessage();
+          }
+      }
 
 
-
-  try {
-    $storage = Factory::get('storages', 'json');
-    $user->save($storage);
-
-    } catch (Exception $e) {
-      echo $e->getMessage();
-    }
 }
 
 ?>
@@ -53,7 +57,7 @@ if( $_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST)){
                 <input id="nombre" type="text" value="<?= $_POST['nombre'] ?? '' ?>" class="form-control" name="nombre" placeholder="Ingresa tu nombre">
                 <p><?= $valRegistro->getErrors()['nombre'][0] ?? '' ?></p>
               </div>
-              </div>
+              
               <div class="form-group col-md-6">
                 <label for="inputApellido">Apellido</label>
                 <input id="apellido" type="text" value="<?= $_POST['apellido'] ?? '' ?>" class="form-control" name="apellido" placeholder="Ingresa tu Apellido">
@@ -69,7 +73,7 @@ if( $_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST)){
               <div class="form-group col-md-6">
                 <label for="inputUsuario">Usuario</label>
                 <input id="nombre" type="text" value="<?= $_POST['usuario'] ?? ''?>" class="form-control" name="usuario" placeholder="Ingresa tu usuario" title="Debe ser mayor a 6 letras :)">
-                <<p><?= $valRegistro->getErrors()['usuario'][0] ?? '' ?></p>
+                <p><?= $valRegistro->getErrors()['usuario'][0] ?? '' ?></p>
               </div>
           </div>
               <div class="form-group">
