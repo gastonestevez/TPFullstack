@@ -1,19 +1,18 @@
 
-.tarjetaPrincipal {
-
-  background-size: cover;
-}
-
 .main-footer {
-  display: none;
+  display: flex;
+  justify-content: center;
   background-color: #b6b6b6;
+  width: 100%;
 
 }
 
-.main-footer li{
-  margin-right: 30px;
-  background-color: white;
+.main-footer ul li{
+  background-color: #b6b6b6;
+  float: left;
+  margin: 10px;
 }
+
 
 .carousel{
   margin: 0 25%;
@@ -24,11 +23,17 @@
   margin:0 auto;
 }
 
-@media only screen and (min-device-width:768px) and (max-device-width:1024px){
+@media only screen and (max-device-width:768px){
   .main-footer {
-    display: none;
+    display: flex;
+    justify-content: right;
+    flex-direction: column;
+    background-color: #b6b6b6;
+    width: 100%;
   }
 }
+
+/*
 @media only screen and (min-device-width:1024px){
 .main-footer {
   display: block;
@@ -55,3 +60,4 @@
 
 
 }
+*/
