@@ -87,8 +87,8 @@ abstract class Validacion {
         $usuarios = json_decode ($data, true);
         $usuarioEncontrado = null;
         foreach ($usuarios as $usuario) {
-            if ($usuario['usuario']['usuario'] === $this->getUsuario()->getUsuario() && password_verify($this->getUsuario()->getPassword(),$usuario['usuario']['password'])){
-                $usuarioEncontrado = $usuario['usuario'];
+            if ($usuario['usuario'] === $this->getUsuario()->getUsuario() && password_verify($this->getUsuario()->getPassword(),$usuario['password'])){
+                $usuarioEncontrado = $usuario;
             }
         }
         return $usuarioEncontrado;

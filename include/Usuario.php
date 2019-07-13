@@ -20,12 +20,45 @@ class Usuario implements JsonSerializable{
      */
     public function __construct(){
     }
+
+    public function save(StorageInterface $storage){
+        $storage->getSource();
+
+        $archivo = $this->getAvatar()['tmp_name'];
+        $nombreArchivo =$this->getAvatar()['name'];
+        $extension = pathinfo($nombreArchivo,PATHINFO_EXTENSION);
+        $miArchivo = 'media/';
+        $miArchivo = $miArchivo . md5($nombreArchivo) . '.' . $extension;
+        move_uploaded_file($archivo,$miArchivo);
+        
+        $this->setAvatar($miArchivo);
+        $this->setPassword(password_hash($this->getPassword(),PASSWORD_DEFAULT));
+  
+        if ($storage instanceof DatabasesStorage) {
+          $sql = 'INSERT INTO users (nombre, user, apellido, email, nacimiento, pass1, provincia,avatar) 
+                VALUES (:nombre, :usuario, :apellido, :email, :nacimiento, :password, :provincia, :avatar)';
+          $storage->setQuery($sql);
+        }
+        $storage->insert([
+            'nombre' => $this->getNombre(),
+            'apellido' => $this->getApellido(),
+            'usuario' => $this->getUsuario(),
+            'email' => $this->getEmail(),
+            'nacimiento' => $this->getNacimiento(),
+            'password' => $this->getPassword(),
+            'provincia' => $this->getProvincia(),
+            'avatar' => $this->getAvatar(),
+        ]);
+  
+      }
+  
+
+
     /**
      * Post: Serializa el objeto para guardarlo en JSON.
      */
     public function jsonSerialize(){
         return [
-            'usuario' => [
                 'nombre' => $this->getNombre(),
                 'apellido' => $this->getApellido(),
                 'usuario' => $this->getUsuario(),
@@ -33,8 +66,7 @@ class Usuario implements JsonSerializable{
                 'nacimiento' => $this->getNacimiento(),
                 'password' => $this->getPassword(),
                 'provincia' => $this->getProvincia(),
-                'avatar' => $this->getAvatar(),
-            ]
+                //'avatar' => $this->getAvatar(),
         ];
     }
     
