@@ -1,3 +1,6 @@
+
+<html>
+<?php include('modalBienvenida.php'); ?>
 <main class="py-4 tarjetaPrincipal">
 <div class="container">
   <div class="row">
@@ -47,3 +50,15 @@
         
         </div>
   		</footer>
+      </html>
+
+<script>
+  $(document).ready(function(){
+    <?php
+      if($_SESSION['registrado'] === true){
+        echo "$('#gracias').modal('show');";
+        $_SESSION['registrado'] = false;
+      }
+    ?>
+  });
+</script>

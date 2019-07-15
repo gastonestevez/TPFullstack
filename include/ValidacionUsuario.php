@@ -1,6 +1,6 @@
 <?php
 require 'include/Validacion.php';
-
+require 'Factory.php';
 class ValidacionUsuario extends Validacion{
 
     
@@ -18,7 +18,7 @@ class ValidacionUsuario extends Validacion{
             $this->addError('password','La contraseña debe tener entre 6 y 12 caracteres');
         }
          
-        $usuarioEncontrado = $this->obtenerUsuarioIngresado();
+        $usuarioEncontrado = $this->obtenerUsuarioIngresado(Factory::get('storages', 'db'));
          
         if ($usuarioEncontrado!=null && empty($errors)){
             $_SESSION['usuario'] = $usuarioEncontrado;

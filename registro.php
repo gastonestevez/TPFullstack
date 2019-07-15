@@ -27,6 +27,7 @@ if( $_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST)){
         try {
           $storage = Factory::get('storages', 'db');
           $user->save($storage);
+          $_SESSION['registrado'] = true;
           header('location:index.php');
           } catch (Exception $e) {
             echo $e->getMessage();
@@ -35,9 +36,11 @@ if( $_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST)){
 
 
 }
-
 ?>
 <body>
+
+
+
  <section class="general" id="Seccionregistrarse">
    <div class="commonr">
      <ul>
@@ -122,11 +125,12 @@ if( $_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST)){
                 <div class="form-group col-md-6">
                   <label for="inputPassword">Contraseña</label>
                   <input id="pass" class="form-control" type="password" name="pass" title="Debe ser entre 6 y 12 letras" value>
-                  <p><?= $valRegistro->getErrors()['password'][0] ?? '' ?></p>
+                  <p id='pass1Texto'><?= $valRegistro->getErrors()['password'][0] ?? '' ?></p>
                 </div>
                 <div class="form-group col-md-6">
                   <label>Reingresa tu contraseña</label>
                   <input id="passconf" class="form-control" type="password" name="passconf" value>
+                  <p id='pass2Texto'></p>
                 </div>
               </div>
               <div class="form-check">
@@ -146,4 +150,14 @@ $(".custom-file-input").on("change", function() {
   var fileName = $(this).val().split("\\").pop();
   $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
 });
+
+$("#pass").on("change",function(){
+  var pass = $("#pass");
+  if(pass.val().length < 6 || pass.val().length > 12){
+    $("#pass1Texto").html('Debe tener entre 6 y 12 caracteres');
+  }else{
+    $("#pass1Texto").html('');
+  }
+});
+
 </script>

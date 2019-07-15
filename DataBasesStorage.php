@@ -12,6 +12,7 @@ class DatabasesStorage implements StorageInterface
    {
      $this->source = DB::getInstance();
    }
+
    public function insert(array $data=[])
    {
      $stmt = $this->source->prepare($this->sql);
@@ -21,6 +22,14 @@ class DatabasesStorage implements StorageInterface
    }
     $stmt->execute();
   }
+
+  public function select($user){
+    $stmt = $this->source->prepare($this->sql);
+    $stmt->bindValue(":usuario",$user);
+    $stmt->execute();
+    return $stmt->fetch();
+  }
+
    public function getId()
    {
       return $this->source->lasInsertId();

@@ -66,7 +66,7 @@ class Usuario implements JsonSerializable{
                 'nacimiento' => $this->getNacimiento(),
                 'password' => $this->getPassword(),
                 'provincia' => $this->getProvincia(),
-                //'avatar' => $this->getAvatar(),
+                'avatar' => $this->getAvatar(),
         ];
     }
     

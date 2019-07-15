@@ -3,6 +3,8 @@ include 'include/head.php';
 include 'include/navegacion.php';
 require 'include/ValidacionUsuario.php';
 require 'include/Usuario.php';
+require 'src/config.php';
+
 $newUser = new Usuario;
 $valUsuario = new ValidacionUsuario;
 if( $_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST)){
@@ -11,10 +13,10 @@ if( $_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST)){
   $valUsuario->setUsuario($newUser);
   $valUsuario->validarUsuario();
 }
-        
-//$validacion = new Validacion($_POST);
-//$validacion->procesarLogin();
 
+if(isset($_SESSION['usuario'])){
+  header('Location:index.php');
+}
 
 ?>
 <body class="backLogin">
