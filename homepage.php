@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div id="carouselExampleControls" class="carousel slide car" data-ride="carousel">
           <div class="carousel-inner">
 
             <div class="carousel-item active">
@@ -30,9 +30,20 @@
 </div>
     </main>
       <footer class="main-footer">
-        <ul>
-          <li><img class="envios" src="img/enviosgratis.png" alt="envios_gratis"></li>
-  				<li><img class="envios" src="img/envio.png" alt="envios_domicilio"></li>
-  				<li><img class="envios" src="img/mercadopago.png" alt="mercadopago"></li>
-  			</ul>
+        <div class="foot-service">
+          <i class="fas fa-truck"></i>
+          <h4>Envíos gratis</h4>
+          <p>Envíos gratis en las compras superiores a $2000.</p>
+        </div>
+        <div class="foot-service">
+          <i class="fas fa-store-alt"></i>
+          <h4>Pick up store</h4>
+          <p>Compra online y retirá tu compra por nuestro local.</p>
+        </div>
+        <div class="foot-service">
+          <i class="fas fa-undo-alt"></i>
+          <h4>Cambios gratis</h4>
+          <p>Tenés 30 días para realizar cambios.</p>
+        
+        </div>
   		</footer>

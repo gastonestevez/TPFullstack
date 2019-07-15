@@ -2,10 +2,17 @@
 
 $servername = "localhost";
 $username = "root";
-$password = "root";
+$password = "";
 $dbname = "bigfashion";
 
 try {
+    //Creo bdd
+    $connection = new PDO("mysql:host=$servername", $username, $password);
+    $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $sql = "CREATE DATABASE $dbname";
+    $connection->exec($sql);
+    echo "Database created successfully<br>";
+    //Creo tablas
     $connection = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
