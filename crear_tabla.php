@@ -24,7 +24,7 @@ try {
       apellido varchar(45) DEFAULT NULL,
       email varchar(45) DEFAULT NULL,
       nacimiento varchar(45) DEFAULT NULL,
-      pass1 varchar(45) DEFAULT NULL,
+      pass1 varchar(80) DEFAULT NULL,
       provincia varchar(45) DEFAULT NULL,
       avatar varchar(45) DEFAULT NULL,
       PRIMARY KEY (`id`)
