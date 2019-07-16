@@ -1,5 +1,3 @@
-
-
 .main-footer {
   display: flex;
   justify-content: space-between;
@@ -20,13 +18,32 @@
   font-size: 1.5em;
   margin: 1em;
 }
-.main-footer .foot-service p{
+.main-footer .foot-service p,
+.main-footer .foot-service h4{
   text-align: center;
 }
 
-
 .carousel-inner  img {
   margin: 0 auto;
+}
+
+.whatsappDiv {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, .8);
+  float: right;
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  display: none;
+}
+.whatsappDiv i {
+  font-size: 30px;
+  color: white;
+  text-align: center;
+  margin-left: 12px;
+  margin-top: 10px;
 }
 
 @media only screen and (max-device-width:768px){
@@ -45,11 +62,16 @@
     flex-direction: column;
     height: 200px;
   }
+  .whatsappDiv{
+    display: block;
+  }
 }
 
-@media only screen and (max-device-width:725px){
+@media only screen and (max-device-width:425px){
   .main-footer .foot-service{
     height: 250px;
+    justify-content: center;
+    align-items: center;
   }
 }
 

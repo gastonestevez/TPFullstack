@@ -49,13 +49,18 @@
           <p>Tenés 30 días para realizar cambios.</p>
         
         </div>
-  		</footer>
-      </html>
+
+        
+      </footer>
+      <div class="whatsappDiv">
+        <i class="fab fa-whatsapp"></i>
+      </div>
+</html>
 
 <script>
   $(document).ready(function(){
     <?php
-      if($_SESSION['registrado'] === true){
+      if(isset($_SESSION['registrado']) && $_SESSION['registrado'] === true){
         echo "$('#gracias').modal('show');";
         $_SESSION['registrado'] = false;
       }

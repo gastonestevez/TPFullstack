@@ -37,11 +37,11 @@ if($haySession)
             </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#"><i class="fas fa-percentage"></i></i> SALE</a>
+              <a class="nav-link" href="#"><i class="fas fa-percentage carrito-nav"></i></i> SALE</a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="#"><i class="fas fa-envelope"></i></i> CONTACTO</a>
+              <a class="nav-link" href="#"><i class="fas fa-envelope carrito-nav"></i></i> CONTACTO</a>
             </li>
 
         </ul>
