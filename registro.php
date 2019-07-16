@@ -75,8 +75,8 @@ if( $_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST)){
               </div>
               <div class="form-group col-md-6">
                 <label for="inputUsuario">Usuario</label>
-                <input id="nombre" type="text" value="<?= $_POST['usuario'] ?? ''?>" class="form-control" name="usuario" placeholder="Ingresa tu usuario" title="Debe ser mayor a 6 letras :)">
-                <p><?= $valRegistro->getErrors()['usuario'][0] ?? '' ?></p>
+                <input id="usuario" type="text" value="<?= $_POST['usuario'] ?? ''?>" class="form-control" name="usuario" placeholder="Ingresa tu usuario" title="Debe ser mayor a 6 letras :)">
+                <p id="usuarioText"><?= $valRegistro->getErrors()['usuario'][0] ?? '' ?></p>
               </div>
           </div>
               <div class="form-group">
@@ -159,5 +159,12 @@ $("#pass").on("change",function(){
     $("#pass1Texto").html('');
   }
 });
-
+$("#usuario").on("change",function(){
+  var usr = $('#usuario');
+  if(usr.val().length < 6 || usr.val().length > 12){
+    $("#usuarioText").html('Debe tener entre 6 y 12 caracteres');
+  }else{
+    $("#usuarioText").html('');
+  }
+});
 </script>

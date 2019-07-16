@@ -18,7 +18,7 @@ require 'Validacion.php';
       $this->addError('usuario','Falta el campo usuario');
     }else if(empty($this->getUsuario()->getUsuario())){
       $this->addError('usuario','El usuario es requerido');
-    }else if(!$this->validaAncho(5,12,$this->getUsuario()->getPassword())){
+    }else if(!$this->validaAncho(5,12,$this->getUsuario()->getUsuario())){
       $this->addError('usuario','Elige un nombre de usuario que tenga entre 6 y 12 caracteres');
     }
 
